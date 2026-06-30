@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maven Mind Map — Day 1</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', sans-serif; background: #0f0f1a; color: #e0e0e0; min-height: 100vh; }
+
+  header {
+    text-align: center;
+    padding: 30px 20px 10px;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border-bottom: 2px solid #e94560;
+  }
+  header h1 { font-size: 2rem; color: #e94560; letter-spacing: 2px; }
+  header p { color: #aaa; margin-top: 6px; font-size: 0.95rem; }
+
+  .mindmap-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    overflow-x: auto;
+  }
+
+  svg { font-family: 'Segoe UI', sans-serif; }
+
+  .section { padding: 20px 40px; }
+  .section h2 { color: #e94560; font-size: 1.3rem; margin-bottom: 16px; border-left: 4px solid #e94560; padding-left: 12px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+
+  .card {
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+    border-radius: 12px;
+    padding: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(233,69,96,0.2); }
+  .card h3 { color: #4ecca3; font-size: 1rem; margin-bottom: 10px; }
+  .card p, .card ul { color: #ccc; font-size: 0.88rem; line-height: 1.7; }
+  .card ul { padding-left: 18px; }
+  .card code {
+    display: block;
+    background: #0d0d1a;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-top: 10px;
+    font-size: 0.82rem;
+    color: #4ecca3;
+    font-family: 'Courier New', monospace;
+    overflow-x: auto;
+    white-space: pre;
+    border-left: 3px solid #e94560;
+  }
+  .badge {
+    display: inline-block;
+    background: #e94560;
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0;
+  }
+  .flow-box {
+    background: #16213e;
+    border: 1px solid #e94560;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 0.82rem;
+    color: #fff;
+    text-align: center;
+  }
+  .flow-arrow { color: #e94560; font-size: 1.2rem; font-weight: bold; }
+
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.85rem; }
+  th { background: #e94560; color: #fff; padding: 8px 12px; text-align: left; }
+  td { padding: 8px 12px; border-bottom: 1px solid #2a2a4a; color: #ccc; }
+  tr:hover td { background: #1a1a2e; }
+
+  footer { text-align: center; padding: 24px; color: #555; font-size: 0.82rem; border-top: 1px solid #2a2a4a; margin-top: 20px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🗺️ MAVEN — Day 1 Mind Map</h1>
+  <p>📅 30 June 2026 &nbsp;|&nbsp; Author: Vishnu Vardhan &nbsp;|&nbsp; Build Automation Tool by Apache</p>
+</header>
+
+<!-- SVG Mind Map -->
+<div class="mindmap-container">
+<svg width="960" height="540" viewBox="0 0 960 540">
+  <!-- Background -->
+  <rect width="960" height="540" fill="#0f0f1a"/>
+
+  <!-- Center Node -->
+  <ellipse cx="480" cy="270" rx="80" ry="40" fill="#e94560"/>
+  <text x="480" y="265" text-anchor="middle" fill="white" font-size="14" font-weight="bold">MAVEN</text>
+  <text x="480" y="282" text-anchor="middle" fill="white" font-size="10">Build Tool</text>
+
+  <!-- Branch: Build Lifecycle -->
+  <line x1="480" y1="230" x2="240" y2="120" stroke="#4ecca3" stroke-width="2"/>
+  <rect x="140" y="88" width="160" height="44" rx="8" fill="#16213e" stroke="#4ecca3" stroke-width="1.5"/>
+  <text x="220" y="108" text-anchor="middle" fill="#4ecca3" font-size="12" font-weight="bold">Build Lifecycle</text>
+  <text x="220" y="124" text-anchor="middle" fill="#aaa" font-size="9">compile→test→package→deploy</text>
+
+  <!-- Branch: Project Structure -->
+  <line x1="480" y1="230" x2="720" y2="120" stroke="#f7971e" stroke-width="2"/>
+  <rect x="640" y="88" width="160" height="44" rx="8" fill="#16213e" stroke="#f7971e" stroke-width="1.5"/>
+  <text x="720" y="108" text-anchor="middle" fill="#f7971e" font-size="12" font-weight="bold">Project Structure</text>
+  <text x="720" y="124" text-anchor="middle" fill="#aaa" font-size="9">src/main · src/test · pom.xml</text>
+
+  <!-- Branch: Repositories -->
+  <line x1="400" y1="270" x2="180" y2="270" stroke="#a855f7" stroke-width="2"/>
+  <rect x="60" y="248" width="160" height="44" rx="8" fill="#16213e" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="140" y="268" text-anchor="middle" fill="#a855f7" font-size="12" font-weight="bold">Repositories</text>
+  <text x="140" y="284" text-anchor="middle" fill="#aaa" font-size="9">Local · Central · Remote</text>
+
+  <!-- Branch: POM File -->
+  <line x1="560" y1="270" x2="780" y2="270" stroke="#38bdf8" stroke-width="2"/>
+  <rect x="740" y="248" width="160" height="44" rx="8" fill="#16213e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="820" y="268" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="bold">POM File</text>
+  <text x="820" y="284" text-anchor="middle" fill="#aaa" font-size="9">GroupId·ArtifactId·Version</text>
+
+  <!-- Branch: Goals -->
+  <line x1="480" y1="310" x2="240" y2="420" stroke="#fb923c" stroke-width="2"/>
+  <rect x="140" y="398" width="160" height="44" rx="8" fill="#16213e" stroke="#fb923c" stroke-width="1.5"/>
+  <text x="220" y="418" text-anchor="middle" fill="#fb923c" font-size="12" font-weight="bold">Maven Goals</text>
+  <text x="220" y="434" text-anchor="middle" fill="#aaa" font-size="9">clean·compile·test·package</text>
+
+  <!-- Branch: Dependencies & Plugins -->
+  <line x1="480" y1="310" x2="720" y2="420" stroke="#34d399" stroke-width="2"/>
+  <rect x="640" y="398" width="160" height="44" rx="8" fill="#16213e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="720" y="418" text-anchor="middle" fill="#34d399" font-size="12" font-weight="bold">Dep vs Plugin</text>
+  <text x="720" y="434" text-anchor="middle" fill="#aaa" font-size="9">dependencies · build/plugins</text>
+
+  <!-- Sub-nodes: Lifecycle -->
+  <line x1="140" y1="88" x2="80" y2="40" stroke="#4ecca3" stroke-width="1" stroke-dasharray="4"/>
+  <rect x="20" y="20" width="80" height="24" rx="5" fill="#0d0d1a" stroke="#4ecca3" stroke-width="1"/>
+  <text x="60" y="36" text-anchor="middle" fill="#4ecca3" font-size="9">compile</text>
+
+  <line x1="220" y1="88" x2="220" y2="46" stroke="#4ecca3" stroke-width="1" stroke-dasharray="4"/>
+  <rect x="180" y="26" width="80" height="24" rx="5" fill="#0d0d1a" stroke="#4ecca3" stroke-width="1"/>
+  <text x="220" y="42" text-anchor="middle" fill="#4ecca3" font-size="9">test → package</text>
+
+  <!-- Sub-nodes: Repos -->
+  <line x1="60" y1="270" x2="20" y2="220" stroke="#a855f7" stroke-width="1" stroke-dasharray="4"/>
+  <rect x="0" y="204" width="64" height="22" rx="4" fill="#0d0d1a" stroke="#a855f7"/>
+  <text x="32" y="218" text-anchor="middle" fill="#a855f7" font-size="8">~/.m2/repo</text>
+
+  <line x1="60" y1="290" x2="20" y2="330" stroke="#a855f7" stroke-width="1" stroke-dasharray="4"/>
+  <rect x="0" y="318" width="70" height="22" rx="4" fill="#0d0d1a" stroke="#a855f7"/>
+  <text x="35" y="332" text-anchor="middle" fill="#a855f7" font-size="8">repo1.maven.org</text>
+
+  <!-- Sub-nodes: POM -->
+  <line x1="900" y1="248" x2="930" y2="200" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4"/>
+  <rect x="900" y="184" width="60" height="22" rx="4" fill="#0d0d1a" stroke="#38bdf8"/>
+  <text x="930" y="198" text-anchor="middle" fill="#38bdf8" font-size="8">SNAPSHOT</text>
+
+  <line x1="900" y1="292" x2="930" y2="340" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4"/>
+  <rect x="900" y="328" width="60" height="22" rx="4" fill="#0d0d1a" stroke="#38bdf8"/>
+  <text x="930" y="342" text-anchor="middle" fill="#38bdf8" font-size="8">RELEASE</text>
+</svg>
+</div>
+
+<!-- Build Lifecycle Section -->
+<div class="section">
+  <h2>🔄 Build Lifecycle Flow</h2>
+  <div class="flow">
+    <div class="flow-box">📝 Source Code<br/><small>.java</small></div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-box">⚙️ Compile<br/><small>.class</small></div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-box">🧪 Unit Test<br/><small>JUnit</small></div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-box">📦 Package<br/><small>JAR/WAR</small></div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-box">🚀 Deploy<br/><small>Server</small></div>
+  </div>
+</div>
+
+<!-- Cards Section -->
+<div class="section">
+  <h2>📚 Key Concepts</h2>
+  <div class="cards">
+
+    <div class="card">
+      <div class="badge">DEFINITION</div>
+      <h3>🔧 What is Maven?</h3>
+      <p>Free and open-source <strong>build automation tool</strong> developed by the Apache Software Foundation. Manages the entire build lifecycle from compilation to deployment.</p>
+      <ul>
+        <li>Creates standard project folder structure</li>
+        <li>Downloads and manages dependencies</li>
+        <li>Runs unit tests automatically</li>
+        <li>Packages into JAR or WAR files</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="badge">TERMINOLOGY</div>
+      <h3>🆔 GroupId / ArtifactId / Version</h3>
+      <table>
+        <tr><th>Term</th><th>Meaning</th><th>Example</th></tr>
+        <tr><td>GroupId</td><td>Company/org name</td><td>com.telusko</td></tr>
+        <tr><td>ArtifactId</td><td>Project name</td><td>vishnu-app</td></tr>
+        <tr><td>Version</td><td>Project version</td><td>1.0-SNAPSHOT</td></tr>
+        <tr><td>SNAPSHOT</td><td>In development</td><td>0.0.1-SNAPSHOT</td></tr>
+        <tr><td>RELEASE</td><td>Final for client</td><td>1.0-RELEASE</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="badge">REPOSITORIES</div>
+      <h3>🏪 3 Types of Repositories</h3>
+      <ul>
+        <li><strong style="color:#4ecca3">Local</strong> — ~/.m2/repository (your machine cache)</li>
+        <li><strong style="color:#f7971e">Central</strong> — repo1.maven.org (official online)</li>
+        <li><strong style="color:#a855f7">Remote</strong> — Company/private server</li>
+      </ul>
+      <p style="margin-top:10px; font-size:0.82rem; color:#aaa;">First time → downloads from Central. Next time → uses Local directly ⚡</p>
+    </div>
+
+    <div class="card">
+      <div class="badge">COMPARISON</div>
+      <h3>⚖️ Dependency vs Plugin</h3>
+      <table>
+        <tr><th>Feature</th><th>Dependency</th><th>Plugin</th></tr>
+        <tr><td>Purpose</td><td>App library</td><td>Build tool</td></tr>
+        <tr><td>Import in code</td><td>✅ Yes</td><td>Maven uses it</td></tr>
+        <tr><td>Section</td><td>&lt;dependencies&gt;</td><td>&lt;build&gt;&lt;plugins&gt;</td></tr>
+        <tr><td>Example</td><td>Spring, JUnit</td><td>maven-compiler</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="badge">COMMANDS</div>
+      <h3>⌨️ Key Maven Commands</h3>
+      <code>mvn archetype:generate   # Create project
+mvn compile             # Compile code
+mvn test                # Compile + test
+mvn package             # Compile+test+JAR
+mvn clean package       # Clean then package
+mvn install             # Copy to ~/.m2
+mvn deploy              # Push to remote repo</code>
+    </div>
+
+    <div class="card">
+      <div class="badge">STRUCTURE</div>
+      <h3>📁 Project Structure</h3>
+      <code>vishnu-app/
+├── .mvn/
+├── src/
+│   ├── main/java/com/vishnu/
+│   │   └── App.java
+│   └── test/java/com/vishnu/
+│       └── AppTest.java
+└── pom.xml  ← Maven config</code>
+    </div>
+
+    <div class="card">
+      <div class="badge">ARCHETYPES</div>
+      <h3>🏗️ Archetype Templates</h3>
+      <p>A template that defines the structure of a Maven project.</p>
+      <table>
+        <tr><th>Archetype</th><th>Creates</th></tr>
+        <tr><td>maven-archetype-quickstart</td><td>Java standalone app</td></tr>
+        <tr><td>maven-archetype-webapp</td><td>Java web app (WAR)</td></tr>
+      </table>
+      <code>mvn archetype:generate \
+  -DarchetypeArtifactId=\
+  maven-archetype-quickstart</code>
+    </div>
+
+    <div class="card">
+      <div class="badge">GOALS</div>
+      <h3>🎯 Maven Goals Explained</h3>
+      <ul>
+        <li><code style="color:#e94560;background:none;padding:0;border:none;display:inline">clean</code> — deletes target/ folder</li>
+        <li><code style="color:#e94560;background:none;padding:0;border:none;display:inline">compile</code> — .java → .class</li>
+        <li><code style="color:#e94560;background:none;padding:0;border:none;display:inline">test</code> — runs JUnit tests</li>
+        <li><code style="color:#e94560;background:none;padding:0;border:none;display:inline">package</code> — creates JAR/WAR</li>
+        <li><code style="color:#e94560;background:none;padding:0;border:none;display:inline">install</code> — copies to ~/.m2</li>
+        <li><code style="color:#e94560;background:none;padding:0;border:none;display:inline">deploy</code> — uploads to remote</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  📅 Day 1 — 30 June 2026 &nbsp;|&nbsp; Maven Notes by Vishnu Vardhan &nbsp;|&nbsp; Daily Learning Journal
+</footer>
+
+</body>
+</html>
