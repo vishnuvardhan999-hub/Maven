@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gradle Mind Map — Day 1</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', sans-serif; background: #0d1117; color: #e0e0e0; }
+
+  header {
+    text-align: center;
+    padding: 30px 20px 15px;
+    background: linear-gradient(135deg, #0d1117, #161b22);
+    border-bottom: 2px solid #02b875;
+  }
+  header h1 { font-size: 2rem; color: #02b875; letter-spacing: 2px; }
+  header p { color: #8b949e; margin-top: 6px; font-size: 0.95rem; }
+
+  .section { padding: 24px 36px; }
+  .section h2 {
+    color: #02b875; font-size: 1.25rem; margin-bottom: 18px;
+    border-left: 4px solid #02b875; padding-left: 12px;
+  }
+
+  /* SVG mind map */
+  .mindmap-wrap { display: flex; justify-content: center; padding: 30px; overflow-x: auto; }
+
+  /* Cards grid */
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 20px; }
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 12px;
+    padding: 20px; transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(2,184,117,0.15); }
+  .card h3 { color: #58a6ff; font-size: 1rem; margin-bottom: 10px; }
+  .card p, .card ul { color: #c9d1d9; font-size: 0.87rem; line-height: 1.75; }
+  .card ul { padding-left: 18px; }
+  .badge {
+    display: inline-block; background: #02b875; color: #0d1117;
+    font-size: 0.68rem; padding: 2px 8px; border-radius: 20px;
+    margin-bottom: 8px; font-weight: 700; letter-spacing: 1px;
+  }
+  .badge-kotlin { background: #7f52ff; color: #fff; }
+  .badge-groovy { background: #4298b8; color: #fff; }
+  pre {
+    background: #0d1117; border-radius: 8px; padding: 12px 16px;
+    font-size: 0.8rem; color: #c9d1d9; font-family: 'Courier New', monospace;
+    overflow-x: auto; margin-top: 10px; border-left: 3px solid #02b875;
+    white-space: pre;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 0.84rem; margin-top: 10px; }
+  th { background: #02b875; color: #0d1117; padding: 8px 12px; text-align: left; font-weight: 700; }
+  td { padding: 8px 12px; border-bottom: 1px solid #30363d; color: #c9d1d9; }
+  tr:hover td { background: #161b22; }
+
+  .vs-container {
+    display: grid; grid-template-columns: 1fr 60px 1fr; gap: 0;
+    align-items: start; margin: 20px 0;
+  }
+  .vs-box {
+    background: #161b22; border-radius: 10px; padding: 20px;
+  }
+  .vs-box.groovy { border: 2px solid #4298b8; }
+  .vs-box.kotlin { border: 2px solid #7f52ff; }
+  .vs-box h3 { font-size: 1.1rem; margin-bottom: 12px; }
+  .vs-box.groovy h3 { color: #4298b8; }
+  .vs-box.kotlin h3 { color: #7f52ff; }
+  .vs-center { display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 900; color: #e94560; }
+
+  .flow { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+  .flow-box {
+    background: #161b22; border: 1px solid #02b875; border-radius: 8px;
+    padding: 8px 14px; font-size: 0.82rem; color: #fff; text-align: center; min-width: 80px;
+  }
+  .flow-arrow { color: #02b875; font-size: 1.4rem; font-weight: bold; }
+
+  footer { text-align: center; padding: 22px; color: #484f58; font-size: 0.8rem; border-top: 1px solid #30363d; margin-top: 20px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>⚡ GRADLE — Day 1 Mind Map</h1>
+  <p>📅 1 July 2026 &nbsp;|&nbsp; Author: Vishnu Vardhan &nbsp;|&nbsp; Gradle vs Maven · Groovy vs Kotlin DSL</p>
+</header>
+
+<!-- SVG Mind Map -->
+<div class="mindmap-wrap">
+<svg width="1000" height="500" viewBox="0 0 1000 500">
+  <rect width="1000" height="500" fill="#0d1117"/>
+
+  <!-- Center -->
+  <ellipse cx="500" cy="250" rx="75" ry="38" fill="#02b875"/>
+  <text x="500" y="245" text-anchor="middle" fill="#0d1117" font-size="15" font-weight="bold">GRADLE</text>
+  <text x="500" y="262" text-anchor="middle" fill="#0d1117" font-size="10">Build Tool</text>
+
+  <!-- Branch 1: What is Gradle -->
+  <line x1="500" y1="212" x2="260" y2="100" stroke="#58a6ff" stroke-width="2"/>
+  <rect x="160" y="72" width="160" height="44" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="240" y="92" text-anchor="middle" fill="#58a6ff" font-size="12" font-weight="bold">What is Gradle?</text>
+  <text x="240" y="108" text-anchor="middle" fill="#8b949e" font-size="9">Free · open-source · fast</text>
+
+  <!-- Branch 2: Gradle vs Maven -->
+  <line x1="500" y1="212" x2="740" y2="100" stroke="#f0883e" stroke-width="2"/>
+  <rect x="660" y="72" width="160" height="44" rx="8" fill="#161b22" stroke="#f0883e" stroke-width="1.5"/>
+  <text x="740" y="92" text-anchor="middle" fill="#f0883e" font-size="12" font-weight="bold">Gradle vs Maven</text>
+  <text x="740" y="108" text-anchor="middle" fill="#8b949e" font-size="9">Faster · Flexible · Multi-lang</text>
+
+  <!-- Branch 3: Groovy DSL -->
+  <line x1="425" y1="250" x2="190" y2="250" stroke="#4298b8" stroke-width="2"/>
+  <rect x="70" y="228" width="160" height="44" rx="8" fill="#161b22" stroke="#4298b8" stroke-width="1.5"/>
+  <text x="150" y="248" text-anchor="middle" fill="#4298b8" font-size="12" font-weight="bold">Groovy DSL</text>
+  <text x="150" y="264" text-anchor="middle" fill="#8b949e" font-size="9">build.gradle · dynamic</text>
+
+  <!-- Branch 4: Kotlin DSL -->
+  <line x1="575" y1="250" x2="810" y2="250" stroke="#7f52ff" stroke-width="2"/>
+  <rect x="770" y="228" width="160" height="44" rx="8" fill="#161b22" stroke="#7f52ff" stroke-width="1.5"/>
+  <text x="850" y="248" text-anchor="middle" fill="#7f52ff" font-size="12" font-weight="bold">Kotlin DSL</text>
+  <text x="850" y="264" text-anchor="middle" fill="#8b949e" font-size="9">build.gradle.kts · static</text>
+
+  <!-- Branch 5: Project Structure -->
+  <line x1="500" y1="288" x2="260" y2="400" stroke="#02b875" stroke-width="2"/>
+  <rect x="160" y="378" width="160" height="44" rx="8" fill="#161b22" stroke="#02b875" stroke-width="1.5"/>
+  <text x="240" y="398" text-anchor="middle" fill="#02b875" font-size="12" font-weight="bold">Project Structure</text>
+  <text x="240" y="414" text-anchor="middle" fill="#8b949e" font-size="9">build.gradle · src · build/</text>
+
+  <!-- Branch 6: Gradle Wrapper -->
+  <line x1="500" y1="288" x2="740" y2="400" stroke="#e94560" stroke-width="2"/>
+  <rect x="660" y="378" width="160" height="44" rx="8" fill="#161b22" stroke="#e94560" stroke-width="1.5"/>
+  <text x="740" y="398" text-anchor="middle" fill="#e94560" font-size="12" font-weight="bold">Gradle Wrapper</text>
+  <text x="740" y="414" text-anchor="middle" fill="#8b949e" font-size="9">gradlew.bat · no install</text>
+
+  <!-- Sub nodes -->
+  <line x1="160" y1="100" x2="100" y2="50" stroke="#58a6ff" stroke-width="1" stroke-dasharray="4"/>
+  <rect x="40" y="32" width="90" height="22" rx="4" fill="#0d1117" stroke="#58a6ff"/>
+  <text x="85" y="47" text-anchor="middle" fill="#58a6ff" font-size="8">Java,Kotlin,Groovy</text>
+
+  <line x1="660" y1="100" x2="620" y2="50" stroke="#f0883e" stroke-width="1" stroke-dasharray="4"/>
+  <rect x="560" y="32" width="90" height="22" rx="4" fill="#0d1117" stroke="#f0883e"/>
+  <text x="605" y="47" text-anchor="middle" fill="#f0883e" font-size="8">Incremental Build</text>
+
+  <line x1="840" y1="100" x2="920" y2="50" stroke="#f0883e" stroke-width="1" stroke-dasharray="4"/>
+  <rect x="880" y="32" width="90" height="22" rx="4" fill="#0d1117" stroke="#f0883e"/>
+  <text x="925" y="47" text-anchor="middle" fill="#f0883e" font-size="8">Android default</text>
+
+  <line x1="70" y1="250" x2="30" y2="200" stroke="#4298b8" stroke-width="1" stroke-dasharray="4"/>
+  <rect x="0" y="183" width="66" height="22" rx="4" fill="#0d1117" stroke="#4298b8"/>
+  <text x="33" y="197" text-anchor="middle" fill="#4298b8" font-size="8">'single quotes'</text>
+
+  <line x1="70" y1="268" x2="30" y2="310" stroke="#4298b8" stroke-width="1" stroke-dasharray="4"/>
+  <rect x="0" y="298" width="66" height="22" rx="4" fill="#0d1117" stroke="#4298b8"/>
+  <text x="33" y="312" text-anchor="middle" fill="#4298b8" font-size="8">no parens needed</text>
+
+  <line x1="930" y1="250" x2="960" y2="200" stroke="#7f52ff" stroke-width="1" stroke-dasharray="4"/>
+  <rect x="930" y="183" width="70" height="22" rx="4" fill="#0d1117" stroke="#7f52ff"/>
+  <text x="965" y="197" text-anchor="middle" fill="#7f52ff" font-size="8">"double quotes"</text>
+
+  <line x1="930" y1="270" x2="960" y2="316" stroke="#7f52ff" stroke-width="1" stroke-dasharray="4"/>
+  <rect x="930" y="304" width="70" height="22" rx="4" fill="#0d1117" stroke="#7f52ff"/>
+  <text x="965" y="318" text-anchor="middle" fill="#7f52ff" font-size="8">parens required</text>
+</svg>
+</div>
+
+<!-- Build Process Flow -->
+<div class="section">
+  <h2>🔄 Build Process Flow</h2>
+  <div class="flow">
+    <div class="flow-box">📝 Source Code<br/><small>.java / .kt</small></div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-box">⚙️ Compile<br/><small>.class</small></div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-box">🧪 Test<br/><small>JUnit</small></div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-box">📦 Build<br/><small>JAR / WAR</small></div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-box">🚀 Deploy<br/><small>Server</small></div>
+  </div>
+</div>
+
+<!-- Groovy vs Kotlin DSL Section -->
+<div class="section">
+  <h2>⚡ Groovy DSL vs Kotlin DSL — Head to Head</h2>
+  <div class="vs-container">
+    <div class="vs-box groovy">
+      <div class="badge badge-groovy">GROOVY DSL</div>
+      <h3>🟡 build.gradle</h3>
+      <ul>
+        <li>Dynamic typing — flexible</li>
+        <li>Single quotes for strings</li>
+        <li>No parentheses needed</li>
+        <li>Shorter, quicker to write</li>
+        <li>Older projects use this</li>
+        <li>Less IDE auto-complete</li>
+      </ul>
+      <pre>dependencies {
+    implementation 'org.springframework
+        .boot:spring-boot-starter:3.1.0'
+    testImplementation 'junit:junit:4.13'
+}</pre>
+    </div>
+    <div class="vs-center">VS</div>
+    <div class="vs-box kotlin">
+      <div class="badge badge-kotlin">KOTLIN DSL</div>
+      <h3>🔵 build.gradle.kts</h3>
+      <ul>
+        <li>Static typing — strict, safe</li>
+        <li>Double quotes for strings</li>
+        <li>Parentheses are required</li>
+        <li>More explicit/verbose</li>
+        <li>Modern/new projects use this</li>
+        <li>Full IDE auto-complete ✅</li>
+      </ul>
+      <pre>dependencies {
+    implementation("org.springframework
+        .boot:spring-boot-starter:3.1.0")
+    testImplementation("junit:junit:4.13")
+}</pre>
+    </div>
+  </div>
+</div>
+
+<!-- Cards Section -->
+<div class="section">
+  <h2>📚 Key Concepts</h2>
+  <div class="cards">
+
+    <div class="card">
+      <div class="badge">GRADLE vs MAVEN</div>
+      <h3>⚡ Why is Gradle Faster?</h3>
+      <p><strong>Incremental Build</strong> — Gradle only rebuilds files that changed.</p>
+      <table>
+        <tr><th></th><th>Maven</th><th>Gradle</th></tr>
+        <tr><td>1000 files, 5 changed</td><td>Rebuilds all 1000 ❌</td><td>Rebuilds only 5 ✅</td></tr>
+        <tr><td>Performance</td><td>Slower</td><td>Faster ⚡</td></tr>
+        <tr><td>Config</td><td>XML (pom.xml)</td><td>Groovy/Kotlin DSL</td></tr>
+        <tr><td>Flexibility</td><td>Fixed conventions</td><td>Highly customizable</td></tr>
+        <tr><td>Android</td><td>Not used</td><td>Default tool ✅</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="badge">COMMANDS</div>
+      <h3>⌨️ Gradle Commands</h3>
+      <table>
+        <tr><th>Task</th><th>Maven</th><th>Gradle</th></tr>
+        <tr><td>Clean</td><td>mvn clean</td><td>gradle clean</td></tr>
+        <tr><td>Build</td><td>mvn package</td><td>gradle build</td></tr>
+        <tr><td>Test</td><td>mvn test</td><td>gradle test</td></tr>
+        <tr><td>Run Spring Boot</td><td>mvn spring-boot:run</td><td>gradle bootRun</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="badge">WRAPPER</div>
+      <h3>🎁 Gradle Wrapper Explained</h3>
+      <p>Run Gradle <strong>without installing it</strong> on your machine.</p>
+      <pre>gradlew.bat build   ← Windows
+./gradlew build     ← Linux/Mac</pre>
+      <p style="margin-top:10px">Files:</p>
+      <ul>
+        <li><code style="color:#02b875">gradlew</code> — Linux/Mac script</li>
+        <li><code style="color:#02b875">gradlew.bat</code> — Windows script</li>
+        <li><code style="color:#02b875">gradle-wrapper.jar</code> — downloads Gradle</li>
+        <li><code style="color:#02b875">gradle-wrapper.properties</code> — version info</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="badge">STRUCTURE</div>
+      <h3>📁 Project Structure</h3>
+      <pre>my-project/
+├── build.gradle        ← build config
+├── settings.gradle     ← project name
+├── gradlew.bat         ← wrapper (Windows)
+├── gradle/wrapper/     ← version files
+├── src/
+│   ├── main/java/      ← your code
+│   ├── main/resources/ ← configs
+│   ├── test/java/      ← tests
+│   └── test/resources/
+└── build/              ← output</pre>
+    </div>
+
+    <div class="card">
+      <div class="badge">LANGUAGES</div>
+      <h3>🌐 Languages Supported</h3>
+      <table>
+        <tr><th>Maven</th><th>Gradle</th></tr>
+        <tr><td>Java ✅</td><td>Java ✅</td></tr>
+        <tr><td>Spring Boot ✅</td><td>Kotlin ✅</td></tr>
+        <tr><td>—</td><td>Groovy ✅</td></tr>
+        <tr><td>—</td><td>Scala ✅</td></tr>
+        <tr><td>—</td><td>C++ ✅</td></tr>
+        <tr><td>—</td><td>Swift ✅</td></tr>
+        <tr><td>—</td><td>Android ✅</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="badge">WHICH DSL?</div>
+      <h3>🤔 When to use which DSL?</h3>
+      <table>
+        <tr><th>Situation</th><th>Use</th></tr>
+        <tr><td>New project</td><td>Kotlin DSL ✅</td></tr>
+        <tr><td>Existing project</td><td>Keep what it uses</td></tr>
+        <tr><td>First time learning</td><td>Groovy (simpler)</td></tr>
+        <tr><td>Team project</td><td>Kotlin DSL ✅</td></tr>
+        <tr><td>Android project</td><td>Kotlin DSL ✅</td></tr>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  📅 Day 1 — 1 July 2026 &nbsp;|&nbsp; Gradle Notes by Vishnu Vardhan &nbsp;|&nbsp; Daily Learning Journal
+</footer>
+
+</body>
+</html>
