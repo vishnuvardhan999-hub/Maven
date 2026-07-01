@@ -1,38 +1,64 @@
-# 📗 Day 1 — Maven Introduction
+﻿# ≡ƒôù Day 1 ΓÇö Maven Introduction
 **Date:** 30 June 2026  
 **Topic:** Maven Basics, Build Lifecycle, Project Structure, Repositories, Terminologies
 
 ---
 
-## 🗺️ Mind Map — Day 1
+## ≡ƒù║∩╕Å Mind Map ΓÇö Day 1
 
-![Maven Day 1 Mind Map](../images/maven-Day-01-MindMap.png)
+```
+                              ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+                              Γöé  APACHE MAVEN        Γöé
+                              Γöé  Build Automation    Γöé
+                              Γöé  Tool (Apache)       Γöé
+                              ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+                                         Γöé
+         ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+         Γöé               Γöé               Γöé               Γöé               Γöé
+  ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓû╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ  ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓû╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ  ΓöîΓöÇΓöÇΓöÇΓöÇΓû╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ  ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓû╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ  ΓöîΓöÇΓöÇΓöÇΓöÇΓû╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+  Γöé   BUILD     Γöé  Γöé  PROJECT   Γöé  Γöé   POM    Γöé  ΓöéREPOSITORIES Γöé  ΓöéTERMINOLO- Γöé
+  Γöé  LIFECYCLE  Γöé  Γöé STRUCTURE  Γöé  Γöé   FILE   Γöé  Γöé             Γöé  Γöé   GIES    Γöé
+  ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ  ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ  ΓööΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ  ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ  ΓööΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+         Γöé               Γöé               Γöé               Γöé               Γöé
+  SourceΓåÆCompile    src/main/java   GroupId         Local Repo      Archetype
+  BytecodeΓåÆTest     src/test/java   ArtifactId      Central Repo    GroupID
+  PackageΓåÆJAR/WAR   pom.xml         Version         Remote Repo     ArtifactID
+                                    Packaging                       Version
+                                    Dependencies                    Packaging
+                                    Plugins
+```
 
 ---
 
-## 1️⃣ What is Maven?
+## 1∩╕ÅΓâú What is Maven?
 
 Maven is a **free and open-source build automation tool** developed by the **Apache Software Foundation**.
 
-It simplifies the entire build process — from compiling code to deploying applications.
+It simplifies the entire build process ΓÇö from compiling code to deploying applications.
 
-### Build Lifecycle Flow
+### ≡ƒöä Build Lifecycle Flow
 
-![Maven Build Lifecycle](../images/maven-Day-01-Build-Lifecycle.png)
+```
+ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ     ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ     ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ     ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ     ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+Γöé   Source   ΓöéΓöÇΓöÇΓöÇΓöÇΓû╢Γöé  Compile  ΓöéΓöÇΓöÇΓöÇΓöÇΓû╢Γöé   Test    ΓöéΓöÇΓöÇΓöÇΓöÇΓû╢Γöé Package  ΓöéΓöÇΓöÇΓöÇΓöÇΓû╢Γöé  JAR / WAR   Γöé
+Γöé    Code    Γöé     Γöé Bytecode  Γöé     Γöé  (JUnit)  Γöé     Γöé          Γöé     Γöé    Build     Γöé
+Γöé  (.java)   Γöé     Γöé  (.class) Γöé     Γöé           Γöé     Γöé          Γöé     Γöé              Γöé
+ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ     ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ     ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ     ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ     ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+```
 
 ---
 
-## 2️⃣ What Maven Can Do
+## 2∩╕ÅΓâú What Maven Can Do
 
 | # | Capability | Description |
 |---|-----------|-------------|
-| 1 | 📁 Project Structure | Creates the standard project folder structure automatically |
-| 2 | 📦 Dependency Management | Downloads and manages required dependencies/libraries automatically |
-| 3 | 🧪 Unit Testing | Executes unit test cases using testing frameworks like JUnit |
-| 4 | ⚙️ Compile | Compiles the project's source code |
-| 5 | 🚀 Package | Packages the project into deployable formats such as JAR or WAR |
+| 1 | ≡ƒôü Project Structure | Creates the standard project folder structure automatically |
+| 2 | ≡ƒôª Dependency Management | Downloads and manages required dependencies/libraries automatically |
+| 3 | ≡ƒº¬ Unit Testing | Executes unit test cases using testing frameworks like JUnit |
+| 4 | ΓÜÖ∩╕Å Compile | Compiles the project's source code |
+| 5 | ≡ƒÜÇ Package | Packages the project into deployable formats such as JAR or WAR |
 
-### 💡 Example
+### ≡ƒÆí Example
 Without Maven, you would manually:
 - Download `junit-5.jar`, `spring-core.jar`, `hibernate.jar` etc.
 - Add them to classpath
@@ -47,11 +73,11 @@ Without Maven, you would manually:
     <scope>test</scope>
 </dependency>
 ```
-Maven handles the rest automatically! ✅
+Maven handles the rest automatically! Γ£à
 
 ---
 
-## 3️⃣ Creating a Maven Project
+## 3∩╕ÅΓâú Creating a Maven Project
 
 ### Command
 ```bash
@@ -90,36 +116,36 @@ mvn archetype:generate \
 
 ---
 
-## 4️⃣ Maven Project Structure
+## 4∩╕ÅΓâú Maven Project Structure
 
 After running `mvn archetype:generate`, Maven creates this folder structure:
 
 ```
 vishnu-app/
-├── .mvn/
-│   └── maven-config
-├── src/
-│   ├── main/
-│   │   └── java/
-│   │       └── com/
-│   │           └── vishnu/
-│   │               └── App.java          ← Your main application code
-│   └── test/
-│       └── java/
-│           └── com/
-│               └── vishnu/
-│                   └── AppTest.java      ← Your unit tests
-└── pom.xml                               ← Maven configuration file (heart of Maven)
+Γö£ΓöÇΓöÇ .mvn/
+Γöé   ΓööΓöÇΓöÇ maven-config
+Γö£ΓöÇΓöÇ src/
+Γöé   Γö£ΓöÇΓöÇ main/
+Γöé   Γöé   ΓööΓöÇΓöÇ java/
+Γöé   Γöé       ΓööΓöÇΓöÇ com/
+Γöé   Γöé           ΓööΓöÇΓöÇ vishnu/
+Γöé   Γöé               ΓööΓöÇΓöÇ App.java          ΓåÉ Your main application code
+Γöé   ΓööΓöÇΓöÇ test/
+Γöé       ΓööΓöÇΓöÇ java/
+Γöé           ΓööΓöÇΓöÇ com/
+Γöé               ΓööΓöÇΓöÇ vishnu/
+Γöé                   ΓööΓöÇΓöÇ AppTest.java      ΓåÉ Your unit tests
+ΓööΓöÇΓöÇ pom.xml                               ΓåÉ Maven configuration file (heart of Maven)
 ```
 
-### 📌 Key Points
-- `src/main/java` → Production source code
-- `src/test/java` → Test source code
-- `pom.xml` → **Project Object Model** — the Maven configuration file
+### ≡ƒôî Key Points
+- `src/main/java` ΓåÆ Production source code
+- `src/test/java` ΓåÆ Test source code
+- `pom.xml` ΓåÆ **Project Object Model** ΓÇö the Maven configuration file
 
 ---
 
-## 5️⃣ Maven Terminologies
+## 5∩╕ÅΓâú Maven Terminologies
 
 ### 1) Archetype
 > A **template** that defines the structure of a Maven project.
@@ -149,9 +175,9 @@ mvn archetype:generate -DarchetypeArtifactId=maven-archetype-webapp
 ```
 
 **Real-world examples:**
-- `com.google` → Google
-- `org.springframework` → Spring Framework
-- `org.apache.maven` → Apache Maven
+- `com.google` ΓåÆ Google
+- `org.springframework` ΓåÆ Spring Framework
+- `org.apache.maven` ΓåÆ Apache Maven
 
 ---
 
@@ -177,8 +203,8 @@ mvn archetype:generate -DarchetypeArtifactId=maven-archetype-webapp
 
 | Version Type | Meaning |
 |-------------|---------|
-| `SNAPSHOT` | Under active development — changes frequently |
-| `RELEASE` | Final stable version — delivered to the client |
+| `SNAPSHOT` | Under active development ΓÇö changes frequently |
+| `RELEASE` | Final stable version ΓÇö delivered to the client |
 
 **Example:**
 ```xml
@@ -194,12 +220,12 @@ mvn archetype:generate -DarchetypeArtifactId=maven-archetype-webapp
 > Defines the **packaging format** of the project.
 
 ```xml
-<packaging>jar</packaging>   <!-- Default — Java application -->
+<packaging>jar</packaging>   <!-- Default ΓÇö Java application -->
 <packaging>war</packaging>   <!-- Web application -->
 <packaging>pom</packaging>   <!-- Parent/multi-module project -->
 ```
 
-> ⚠️ **Default packaging is `jar`** if not specified.
+> ΓÜá∩╕Å **Default packaging is `jar`** if not specified.
 
 | Type | Use Case |
 |------|----------|
@@ -260,31 +286,61 @@ mvn archetype:generate -DarchetypeArtifactId=maven-archetype-webapp
 
 ```bash
 mvn clean      # Delete the target/ folder (compiled output)
-mvn compile    # Compile source code → .class files
+mvn compile    # Compile source code ΓåÆ .class files
 mvn test       # Compile + run all test cases
 mvn package    # Compile + test + create JAR/WAR file
 mvn install    # Package + copy to local repository (~/.m2)
 mvn deploy     # Install + upload to remote repository
 ```
 
-### 🔄 Build Lifecycle Visualization
+### ≡ƒöä Build Lifecycle Visualization
 
 ```
-clean → validate → compile → test → package → verify → install → deploy
-  │                   │         │       │          │        │        │
-Delete            .java→     JUnit   JAR/WAR    Checks   ~/.m2   Remote
+clean ΓåÆ validate ΓåÆ compile ΓåÆ test ΓåÆ package ΓåÆ verify ΓåÆ install ΓåÆ deploy
+  Γöé                   Γöé         Γöé       Γöé          Γöé        Γöé        Γöé
+Delete            .javaΓåÆ     JUnit   JAR/WAR    Checks   ~/.m2   Remote
 target/           .class    Tests    file     quality    repo     repo
 ```
 
 ---
 
-### Maven Repositories Flow
+### 8) Maven Repositories
+> **Storage locations** for Maven dependencies (artifacts/libraries).
 
-![Maven Repositories](../images/maven-Day-01-Repositories.png)
+```
+                    ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+                    Γöé    Maven App        Γöé
+                    Γöé    (pom.xml)        Γöé
+                    ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+                               Γöé needs dependency
+                               Γû╝
+                    ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+                    Γöé   Local Repository  Γöé
+                    Γöé   (~/.m2/repository)Γöé
+                    ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+                    Found? ΓùäΓöÇΓöÇΓöÇΓöñΓöÇΓöÇΓöÇΓû║ Not Found?
+                       Γöé       Γöé           Γöé
+                  Use it Γ£à     Γöé    ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓû╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+                               Γöé    Γöé Maven Central   Γöé
+                               Γöé    Γöé Repository      Γöé
+                               Γöé    Γöé (repo1.maven.org)Γöé
+                               Γöé    ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+                               Γöé           Γöé download & cache
+                               Γöé           Γû╝
+                               Γöé    ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+                               Γöé    Γöé  Local Repo     Γöé
+                               Γöé    Γöé  (now cached)   Γöé
+                               Γöé    ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+                               Γöé
+                    ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓû╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+                    Γöé  Remote Repository  Γöé
+                    Γöé (Company/Private)   Γöé
+                    ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+```
 
 ---
 
-## 6️⃣ Types of Maven Repositories (Detailed)
+## 6∩╕ÅΓâú Types of Maven Repositories (Detailed)
 
 ### 1) Local Repository (on your machine)
 
@@ -294,13 +350,13 @@ target/           .class    Tests    file     quality    repo     repo
 
 ```
 C:\Users\vishnu\.m2\repository\
-├── org\springframework\
-├── junit\junit\4.13.2\
-├── org\hibernate\
-└── ...
+Γö£ΓöÇΓöÇ org\springframework\
+Γö£ΓöÇΓöÇ junit\junit\4.13.2\
+Γö£ΓöÇΓöÇ org\hibernate\
+ΓööΓöÇΓöÇ ...
 ```
 
-**Example:** First time you add Spring Boot dependency → Maven downloads it from Central. Second time → uses from `~/.m2` directly ⚡
+**Example:** First time you add Spring Boot dependency ΓåÆ Maven downloads it from Central. Second time ΓåÆ uses from `~/.m2` directly ΓÜí
 
 ---
 
@@ -309,7 +365,7 @@ C:\Users\vishnu\.m2\repository\
 - Maven's **official public repository** hosted online at [https://repo1.maven.org/maven2](https://repo1.maven.org/maven2)
 - Contains **millions of open-source libraries**
 - If something is **not in your local repo**, Maven looks here next
-- No configuration needed — works out of the box
+- No configuration needed ΓÇö works out of the box
 
 ---
 
@@ -329,16 +385,16 @@ C:\Users\vishnu\.m2\repository\
 </repositories>
 ```
 
-**Use case:** Your company built an internal library `payment-sdk-2.0.jar` — it's stored in the company's remote repo, not on Maven Central.
+**Use case:** Your company built an internal library `payment-sdk-2.0.jar` ΓÇö it's stored in the company's remote repo, not on Maven Central.
 
 ---
 
-## 7️⃣ Dependency vs Plugin
+## 7∩╕ÅΓâú Dependency vs Plugin
 
 | Feature | Dependency | Plugin |
 |---------|-----------|--------|
 | **Purpose** | Application code use | Build/lifecycle tasks |
-| **Import in code?** | ✅ Yes | ✅ Yes (Maven uses it) |
+| **Import in code?** | Γ£à Yes | Γ£à Yes (Maven uses it) |
 | **Function** | Adds new functionalities to app | Performs build process actions |
 | **POM Section** | `<dependencies>` | `<build><plugins>` |
 
@@ -372,7 +428,7 @@ C:\Users\vishnu\.m2\repository\
 
 ---
 
-## 8️⃣ Key Maven Commands
+## 8∩╕ÅΓâú Key Maven Commands
 
 ```bash
 # Clean and repackage
@@ -393,23 +449,23 @@ mvn package
 ```
 FIRST TIME:
   Maven App (pom.xml)
-       │
-       ▼ dependency not in local repo
+       Γöé
+       Γû╝ dependency not in local repo
   Maven Central Repo
-       │
-       ▼ downloads and stores
+       Γöé
+       Γû╝ downloads and stores
   Local Repo (~/.m2)
 
 NEXT TIME:
   Maven App (pom.xml)
-       │
-       ▼ dependency already exists
-  Local Repo (~/.m2) ← directly comes from here ⚡
+       Γöé
+       Γû╝ dependency already exists
+  Local Repo (~/.m2) ΓåÉ directly comes from here ΓÜí
 ```
 
 ---
 
-## 📝 Complete pom.xml Example
+## ≡ƒô¥ Complete pom.xml Example
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -466,7 +522,7 @@ NEXT TIME:
 
 ---
 
-## 🔑 Quick Reference Card
+## ≡ƒöæ Quick Reference Card
 
 | Concept | Definition | Example |
 |---------|-----------|---------|
@@ -487,4 +543,4 @@ NEXT TIME:
 
 ---
 
-*📅 Next session: Continue with more Maven concepts...*
+*≡ƒôà Next session: Continue with more Maven concepts...*

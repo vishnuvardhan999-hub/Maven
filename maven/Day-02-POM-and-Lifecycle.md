@@ -1,22 +1,37 @@
-# 📗 Day 2 — POM.xml & Maven Build Lifecycle
+﻿# ≡ƒôù Day 2 ΓÇö POM.xml & Maven Build Lifecycle
 **Date:** 1 July 2026  
 **Topic:** pom.xml deep dive, Effective POM, Maven Build Lifecycle
 
 ---
 
-## Mind Map
+## ≡ƒù║∩╕Å Mind Map
 
-![Maven Day 2 Mind Map](../images/maven-Day-01-MindMap.png)
+```
+                        ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+                        Γöé   Maven ΓÇö Day 2      Γöé
+                        ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+                                   Γöé
+              ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+              Γöé                    Γöé                    Γöé
+       ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓû╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ     ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓû╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ    ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓû╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+       Γöé   pom.xml   Γöé     Γöé Effective POM Γöé    Γöé   Build     Γöé
+       Γöé             Γöé     Γöé               Γöé    Γöé  Lifecycle  Γöé
+       ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ     ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ    ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+              Γöé                    Γöé                    Γöé
+       Config file           Final merged          default
+       written by            POM used by           clean
+       developer             Maven internally      site
+```
 
 ---
 
-## 1️⃣ pom.xml — Project Object Model
+## 1∩╕ÅΓâú pom.xml ΓÇö Project Object Model
 
-**pom.xml** is a **configuration file** — it is the heart of every Maven project.
+**pom.xml** is a **configuration file** ΓÇö it is the heart of every Maven project.
 
 Think of it like this:
 
-> 🍕 If your project is a pizza order, `pom.xml` is the **order form** that tells Maven:
+> ≡ƒìò If your project is a pizza order, `pom.xml` is the **order form** that tells Maven:
 > - What ingredients (dependencies) to get
 > - How to cook it (build plugins)
 > - What size (version/packaging) to make
@@ -44,7 +59,7 @@ Think of it like this:
 
 ---
 
-## 2️⃣ Effective POM
+## 2∩╕ÅΓâú Effective POM
 
 ### What is Effective POM?
 
@@ -57,10 +72,10 @@ Think of it like this:
 ```
 Your pom.xml         +    Parent pom.xml    +    Super POM (Maven default)
 (your settings)           (company defaults)     (Maven's defaults)
-        │                        │                       │
-        └────────────────────────┴───────────────────────┘
-                                 │
-                                 ▼
+        Γöé                        Γöé                       Γöé
+        ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö┤ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+                                 Γöé
+                                 Γû╝
                          EFFECTIVE POM
                     (what Maven actually uses)
 ```
@@ -83,17 +98,17 @@ The **Super POM** already has defaults like:
 <directory>${project.basedir}/target</directory>
 <sourceDirectory>src/main/java</sourceDirectory>
 ```
-Your Effective POM **combines both** — so you get all the defaults + your custom settings.
+Your Effective POM **combines both** ΓÇö so you get all the defaults + your custom settings.
 
 ---
 
-## 3️⃣ Maven Build Lifecycle
+## 3∩╕ÅΓâú Maven Build Lifecycle
 
 Maven has **3 built-in lifecycles**:
 
 | Lifecycle | Purpose |
 |-----------|---------|
-| `default` | Main lifecycle — builds your application (most used) |
+| `default` | Main lifecycle ΓÇö builds your application (most used) |
 | `clean` | Cleans the `target/` directory |
 | `site` | Generates project documentation |
 
@@ -101,7 +116,19 @@ Maven has **3 built-in lifecycles**:
 
 ### Default Build Lifecycle (Most Important)
 
-![Maven Build Lifecycle Flow](../images/maven-Day-01-Build-Lifecycle.png)
+```
+ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ    ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ    ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ    ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ    ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+Γöé validate ΓöéΓöÇΓöÇΓöÇΓû╢Γöé compile  ΓöéΓöÇΓöÇΓöÇΓû╢Γöé test ΓöéΓöÇΓöÇΓöÇΓû╢Γöé package ΓöéΓöÇΓöÇΓöÇΓû╢Γöé verify Γöé
+ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ    ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ    ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ    ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ    ΓööΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÿ
+                                                                Γöé
+                                                      ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓû╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+                                                      Γöé     install     Γöé
+                                                      ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+                                                                Γöé
+                                                      ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓû╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+                                                      Γöé     deploy      Γöé
+                                                      ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+```
 
 | Phase | What it does |
 |-------|-------------|
@@ -113,7 +140,7 @@ Maven has **3 built-in lifecycles**:
 | `install` | Copies the JAR/WAR to your local `~/.m2` repository |
 | `deploy` | Uploads the JAR/WAR to a remote repository |
 
-> ⚡ **Important:** Each phase runs all previous phases too!
+> ΓÜí **Important:** Each phase runs all previous phases too!
 > `mvn package` = validate + compile + test + package
 
 ### Clean Lifecycle
@@ -128,7 +155,7 @@ mvn site     # Generates HTML documentation for your project
 
 ---
 
-## 4️⃣ Quick Reference
+## 4∩╕ÅΓâú Quick Reference
 
 ```bash
 # See the full effective POM Maven uses internally
@@ -146,4 +173,4 @@ mvn install
 
 ---
 
-*📅 Next: Gradle Build Tool*
+*≡ƒôà Next: Gradle Build Tool*
