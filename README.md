@@ -12,12 +12,26 @@
 📦 Root
 ├── 📂 maven/          ← All Maven notes
 │   ├── Day-01-Maven-Introduction.md
-│   ├── Day-01-MindMap.html
+│   ├── Day-01-MindMap.png
+│   ├── Day-01-Build-Lifecycle.png
+│   ├── Day-01-Repositories.png
 │   └── Day-02-POM-and-Lifecycle.md
 │
-└── 📂 gradle/         ← All Gradle notes
-    ├── Day-01-Gradle-Introduction.md
-    └── Day-01-MindMap.html
+├── 📂 gradle/         ← All Gradle notes
+│   ├── Day-01-Gradle-Introduction.md
+│   ├── Day-01-MindMap.png
+│   ├── Day-01-Gradle-vs-Maven.png
+│   ├── Day-01-Groovy-vs-Kotlin.png
+│   └── Day-01-Structure-and-Wrapper.png
+│
+└── 📂 junit5/         ← All JUnit 5 testing notes
+    ├── Day-01-JUnit5-Testing.md
+    ├── Day-01-MindMap.png
+    ├── Day-01-Architecture.png
+    ├── Day-01-JUnit4-vs-JUnit5.png
+    ├── Day-01-Manual-vs-Unit-Testing.png
+    ├── Day-01-Assertions-CheatSheet.png
+    └── Day-01-Lifecycle-Annotations.png
 ```
 
 ---
@@ -35,9 +49,10 @@
 |-----|------|--------|
 | Day 1 | 01-Jul-2026 | What is Gradle, Gradle vs Maven, Groovy DSL vs Kotlin DSL, Project Structure, Gradle Wrapper |
 
----
-
-## 🚀 Quick Commands
+### 🧪 JUnit 5
+| Day | Date | Topics |
+|-----|------|--------|
+| Day 1 | 01-Jul-2026 | Manual vs Unit Testing, Architecture (Platform/Jupiter/Vintage), @Test, Assertions, Lifecycle, JUnit 4 vs JUnit 5 |
 
 ### Maven
 ```bash
