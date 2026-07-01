@@ -4,7 +4,11 @@
 
 ---
 
-## 1️⃣ What is Testing?
+## Mind Map — Day 1
+
+![JUnit 5 Mind Map](../images/junit5-Day-01-MindMap.png)
+
+---
 
 > Testing is done to **ensure the application works correctly**.  
 > In big organizations, there are dedicated **Test Engineers** whose only job is testing.
@@ -22,6 +26,8 @@
 ---
 
 ## 2️⃣ Manual Testing vs Unit Testing
+
+![Manual vs Unit Testing](../images/junit5-Day-01-Manual-vs-Unit-Testing.png)
 
 ### Manual Testing (old way)
 
@@ -91,6 +97,8 @@ A **Unit Testing Framework** like JUnit does these 6 steps for you automatically
 
 ## 4️⃣ JUnit 5 Architecture
 
+![JUnit 5 Architecture](../images/junit5-Day-01-Architecture.png)
+
 > **JUnit 5 is NOT just JUnit 4 + new features.**  
 > It is a **completely new architecture** with 3 modules.
 
@@ -123,6 +131,8 @@ A **Unit Testing Framework** like JUnit does these 6 steps for you automatically
 
 ## 5️⃣ @Test Annotation
 
+![Lifecycle Annotations Flow](../images/junit5-Day-01-Lifecycle-Annotations.png)
+
 ```java
 @Test   // ← applied over methods to mark method as test
 public void testMultiply() {
@@ -142,6 +152,8 @@ public void testMultiply() {
 ---
 
 ## 6️⃣ Assertions
+
+![Assertions Cheat Sheet](../images/junit5-Day-01-Assertions-CheatSheet.png)
 
 > **Assertions = static methods** used to **check the actual result** against the expected result.
 
@@ -384,8 +396,9 @@ class ParameterizedCalcTest {
 
 ## 8️⃣ JUnit 4 vs JUnit 5 — Full Difference
 
-```
-┌────────────────────────────────────────────────────────────────────┐
+![JUnit 4 vs JUnit 5](../images/junit5-Day-01-JUnit4-vs-JUnit5.png)
+
+
 │                  JUnit 4  vs  JUnit 5                              │
 ├────────────────────────┬───────────────────────────────────────────┤
 │       JUnit 4          │          JUnit 5                         │

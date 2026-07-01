@@ -10,7 +10,10 @@ BLUE   = '#58a6ff'; ORANGE = '#f0883e'; PURPLE = '#bc8cff'
 RED    = '#ff7b72'; YELLOW = '#e3b341'; WHITE  = '#e6edf3'
 GRAY   = '#8b949e'; TEAL   = '#39d353'; PINK   = '#f778ba'
 
-OUT = os.path.dirname(os.path.abspath(__file__))
+OUT    = os.path.dirname(os.path.abspath(__file__))
+# all images go to the central images/ folder at repo root
+IMAGES = os.path.join(OUT, '..', 'images')
+os.makedirs(IMAGES, exist_ok=True)
 
 def bg(fig, axes):
     fig.patch.set_facecolor(BG)
@@ -95,7 +98,7 @@ def junit5_mindmap():
         ax.text(sx,sy-0.22, lbl, ha='center', va='top', fontsize=7.5, color=col)
 
     plt.tight_layout()
-    path = os.path.join(OUT, 'Day-01-MindMap.png')
+    path = os.path.join(IMAGES, 'junit5-Day-01-MindMap.png')
     plt.savefig(path, dpi=150, bbox_inches='tight', facecolor=BG)
     plt.close()
     print(f'Saved: {path}')
@@ -158,7 +161,7 @@ def junit5_architecture():
             ha='center', fontsize=10, color=ORANGE)
 
     plt.tight_layout()
-    path = os.path.join(OUT, 'Day-01-Architecture.png')
+    path = os.path.join(IMAGES, 'junit5-Day-01-Architecture.png')
     plt.savefig(path, dpi=150, bbox_inches='tight', facecolor=BG)
     plt.close()
     print(f'Saved: {path}')
@@ -213,7 +216,7 @@ def junit4_vs_junit5():
         ax.axvline(x=3.4, color='#30363d', lw=0.5, alpha=0.4)
 
     plt.tight_layout()
-    path = os.path.join(OUT, 'Day-01-JUnit4-vs-JUnit5.png')
+    path = os.path.join(IMAGES, 'junit5-Day-01-JUnit4-vs-JUnit5.png')
     plt.savefig(path, dpi=150, bbox_inches='tight', facecolor=BG)
     plt.close()
     print(f'Saved: {path}')
@@ -308,7 +311,7 @@ def manual_vs_unit():
                  family='monospace', va='center')
 
     plt.tight_layout()
-    path = os.path.join(OUT, 'Day-01-Manual-vs-Unit-Testing.png')
+    path = os.path.join(IMAGES, 'junit5-Day-01-Manual-vs-Unit-Testing.png')
     plt.savefig(path, dpi=150, bbox_inches='tight', facecolor=BG)
     plt.close()
     print(f'Saved: {path}')
@@ -374,7 +377,7 @@ def assertions_cheatsheet():
                     color=TEAL, family='monospace', va='center')
 
     plt.tight_layout()
-    path = os.path.join(OUT, 'Day-01-Assertions-CheatSheet.png')
+    path = os.path.join(IMAGES, 'junit5-Day-01-Assertions-CheatSheet.png')
     plt.savefig(path, dpi=150, bbox_inches='tight', facecolor=BG)
     plt.close()
     print(f'Saved: {path}')
@@ -424,7 +427,7 @@ def lifecycle_flow():
                 arrowprops=dict(arrowstyle='<-', color=ORANGE, lw=1.5))
 
     plt.tight_layout()
-    path = os.path.join(OUT, 'Day-01-Lifecycle-Annotations.png')
+    path = os.path.join(IMAGES, 'junit5-Day-01-Lifecycle-Annotations.png')
     plt.savefig(path, dpi=150, bbox_inches='tight', facecolor=BG)
     plt.close()
     print(f'Saved: {path}')

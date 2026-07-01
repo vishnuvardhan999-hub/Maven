@@ -53,11 +53,12 @@ def arrow(ax, x1, y1, x2, y2, color, lw=2):
                 arrowprops=dict(arrowstyle='->', color=color,
                                 lw=lw, connectionstyle='arc3,rad=0'))
 
-OUT = os.path.dirname(os.path.abspath(__file__))
-MAVEN_DIR  = os.path.join(OUT, 'maven')
-GRADLE_DIR = os.path.join(OUT, 'gradle')
-os.makedirs(MAVEN_DIR,  exist_ok=True)
-os.makedirs(GRADLE_DIR, exist_ok=True)
+OUT       = os.path.dirname(os.path.abspath(__file__))
+IMAGES    = os.path.join(OUT, 'images')
+os.makedirs(IMAGES, exist_ok=True)
+# keep aliases so existing function code still works
+MAVEN_DIR  = IMAGES
+GRADLE_DIR = IMAGES
 
 # ════════════════════════════════════════════════════════════════════════════
 # IMAGE 1 — Maven Day-1 Mind Map
@@ -110,7 +111,7 @@ def maven_mindmap():
                 fontsize=7.5, color=col)
 
     plt.tight_layout()
-    path = os.path.join(MAVEN_DIR, 'Day-01-MindMap.png')
+    path = os.path.join(MAVEN_DIR, 'maven-Day-01-MindMap.png')
     plt.savefig(path, dpi=150, bbox_inches='tight', facecolor=BG)
     plt.close()
     print(f'Saved: {path}')
@@ -155,7 +156,7 @@ def maven_lifecycle():
                 text_color=GROOVY, radius=0.05)
 
     plt.tight_layout()
-    path = os.path.join(MAVEN_DIR, 'Day-01-Build-Lifecycle.png')
+    path = os.path.join(MAVEN_DIR, 'maven-Day-01-Build-Lifecycle.png')
     plt.savefig(path, dpi=150, bbox_inches='tight', facecolor=BG)
     plt.close()
     print(f'Saved: {path}')
@@ -212,7 +213,7 @@ def maven_repos():
                       edgecolor=GREEN, lw=1.2))
 
     plt.tight_layout()
-    path = os.path.join(MAVEN_DIR, 'Day-01-Repositories.png')
+    path = os.path.join(MAVEN_DIR, 'maven-Day-01-Repositories.png')
     plt.savefig(path, dpi=150, bbox_inches='tight', facecolor=BG)
     plt.close()
     print(f'Saved: {path}')
@@ -268,7 +269,7 @@ def gradle_mindmap():
                 fontsize=7.5, color=col)
 
     plt.tight_layout()
-    path = os.path.join(GRADLE_DIR, 'Day-01-MindMap.png')
+    path = os.path.join(GRADLE_DIR, 'gradle-Day-01-MindMap.png')
     plt.savefig(path, dpi=150, bbox_inches='tight', facecolor=BG)
     plt.close()
     print(f'Saved: {path}')
@@ -327,7 +328,7 @@ def gradle_vs_maven():
                       edgecolor=GREEN, lw=1.2))
 
     plt.tight_layout()
-    path = os.path.join(GRADLE_DIR, 'Day-01-Gradle-vs-Maven.png')
+    path = os.path.join(GRADLE_DIR, 'gradle-Day-01-Gradle-vs-Maven.png')
     plt.savefig(path, dpi=150, bbox_inches='tight', facecolor=BG)
     plt.close()
     print(f'Saved: {path}')
@@ -451,7 +452,7 @@ def groovy_vs_kotlin():
             bbox=dict(boxstyle='circle,pad=0.3', facecolor=RED, edgecolor=WHITE, lw=1.5))
 
     plt.tight_layout()
-    path = os.path.join(GRADLE_DIR, 'Day-01-Groovy-vs-Kotlin.png')
+    path = os.path.join(GRADLE_DIR, 'gradle-Day-01-Groovy-vs-Kotlin.png')
     plt.savefig(path, dpi=150, bbox_inches='tight', facecolor=BG)
     plt.close()
     print(f'Saved: {path}')
@@ -555,7 +556,7 @@ def gradle_structure():
 
     plt.suptitle('', y=0)
     plt.tight_layout()
-    path = os.path.join(GRADLE_DIR, 'Day-01-Structure-and-Wrapper.png')
+    path = os.path.join(GRADLE_DIR, 'gradle-Day-01-Structure-and-Wrapper.png')
     plt.savefig(path, dpi=150, bbox_inches='tight', facecolor=BG)
     plt.close()
     print(f'Saved: {path}')

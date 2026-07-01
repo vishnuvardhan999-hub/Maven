@@ -4,26 +4,9 @@
 
 ---
 
-## 🗺️ Mind Map
+## Mind Map
 
-```
-                         ┌──────────────────────┐
-                         │       GRADLE         │
-                         │   Build Tool         │
-                         └──────────┬───────────┘
-                                    │
-       ┌──────────────┬─────────────┼──────────────┬──────────────┐
-       │              │             │              │              │
- ┌─────▼─────┐  ┌─────▼─────┐ ┌────▼──────┐ ┌────▼─────┐ ┌──────▼──────┐
- │  What is  │  │ Gradle vs │ │  Groovy  │ │ Project  │ │  Gradle    │
- │  Gradle?  │  │  Maven    │ │    vs    │ │Structure │ │  Wrapper   │
- └─────┬─────┘  └─────┬─────┘ │  Kotlin  │ └────┬─────┘ └──────┬──────┘
-       │               │       └────┬──────┘      │              │
-  Build tool      Faster,      build.gradle   src/main      gradlew.bat
-  automates       flexible,    OR              src/test      no install
-  your project    Groovy/      build.gradle   build/        needed
-                  Kotlin DSL   .kts
-```
+![Gradle Day 1 Mind Map](../images/gradle-Day-01-MindMap.png)
 
 ---
 
@@ -66,20 +49,7 @@ Gradle is a **free, open-source build automation tool** that:
 
 ## 3️⃣ Maven vs Gradle — Side by Side
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                    MAVEN vs GRADLE                              │
-├──────────────────────────┬──────────────────────────────────────┤
-│         MAVEN            │            GRADLE                   │
-├──────────────────────────┼──────────────────────────────────────┤
-│ pom.xml (XML config)     │ build.gradle (Groovy or Kotlin DSL) │
-│ Easy to understand       │ More programming-oriented            │
-│ Performance is slower    │ Performance is faster ⚡             │
-│ Fixed conventions        │ Highly customizable                  │
-│ Very common in Java      │ Very common in Android and           │
-│ Enterprise projects      │ modern projects                      │
-└──────────────────────────┴──────────────────────────────────────┘
-```
+![Gradle vs Maven Comparison](../images/gradle-Day-01-Gradle-vs-Maven.png)
 
 ### Why is Gradle Faster? (Simple Example)
 
@@ -129,29 +99,7 @@ gradle test       # Run unit tests
 
 ## 6️⃣ Gradle Project Folder Structure
 
-```
-my-project/
-│
-├── build.gradle          ← Main Gradle build script (YOUR config file)
-├── settings.gradle       ← Multi-project settings (project name, subprojects)
-│
-├── gradlew               ← Gradle wrapper script (Linux / Mac)
-├── gradlew.bat           ← Gradle wrapper script (Windows) ✅
-│
-├── gradle/
-│   └── wrapper/          ← Wrapper files (keeps Gradle version info)
-│
-├── src/
-│   ├── main/
-│   │   ├── java/         ← Your Java source code
-│   │   └── resources/    ← Config files, properties, static files
-│   │
-│   └── test/
-│       ├── java/         ← Unit test code
-│       └── resources/    ← Test-related configs/resources
-│
-└── build/                ← Auto-generated build output (classes, JARs)
-```
+![Gradle Structure and Wrapper](../images/gradle-Day-01-Structure-and-Wrapper.png)
 
 ### Comparison with Maven:
 ```
@@ -216,7 +164,9 @@ WITHOUT wrapper:                  WITH wrapper:
 
 ## 8️⃣ Groovy DSL vs Kotlin DSL
 
-This is the most important concept that makes Gradle unique!
+![Groovy vs Kotlin DSL](../images/gradle-Day-01-Groovy-vs-Kotlin.png)
+
+
 
 > **DSL = Domain Specific Language** — a mini-language designed for a specific purpose.  
 > Gradle lets you write your build script in **two languages**: Groovy or Kotlin.

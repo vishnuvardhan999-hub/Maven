@@ -6,27 +6,7 @@
 
 ## 🗺️ Mind Map — Day 1
 
-```
-                              ┌──────────────────────┐
-                              │  APACHE MAVEN        │
-                              │  Build Automation    │
-                              │  Tool (Apache)       │
-                              └──────────┬───────────┘
-                                         │
-         ┌───────────────┬───────────────┼───────────────┬───────────────┐
-         │               │               │               │               │
-  ┌──────▼──────┐  ┌─────▼──────┐  ┌────▼─────┐  ┌──────▼──────┐  ┌────▼──────┐
-  │   BUILD     │  │  PROJECT   │  │   POM    │  │REPOSITORIES │  │TERMINOLO- │
-  │  LIFECYCLE  │  │ STRUCTURE  │  │   FILE   │  │             │  │   GIES    │
-  └──────┬──────┘  └─────┬──────┘  └────┬─────┘  └──────┬──────┘  └────┬──────┘
-         │               │               │               │               │
-  Source→Compile    src/main/java   GroupId         Local Repo      Archetype
-  Bytecode→Test     src/test/java   ArtifactId      Central Repo    GroupID
-  Package→JAR/WAR   pom.xml         Version         Remote Repo     ArtifactID
-                                    Packaging                       Version
-                                    Dependencies                    Packaging
-                                    Plugins
-```
+![Maven Day 1 Mind Map](../images/maven-Day-01-MindMap.png)
 
 ---
 
@@ -36,15 +16,9 @@ Maven is a **free and open-source build automation tool** developed by the **Apa
 
 It simplifies the entire build process — from compiling code to deploying applications.
 
-### 🔄 Build Lifecycle Flow
+### Build Lifecycle Flow
 
-```
-┌────────────┐     ┌───────────┐     ┌───────────┐     ┌──────────┐     ┌──────────────┐
-│   Source   │────▶│  Compile  │────▶│   Test    │────▶│ Package  │────▶│  JAR / WAR   │
-│    Code    │     │ Bytecode  │     │  (JUnit)  │     │          │     │    Build     │
-│  (.java)   │     │  (.class) │     │           │     │          │     │              │
-└────────────┘     └───────────┘     └───────────┘     └──────────┘     └──────────────┘
-```
+![Maven Build Lifecycle](../images/maven-Day-01-Build-Lifecycle.png)
 
 ---
 
@@ -304,39 +278,9 @@ target/           .class    Tests    file     quality    repo     repo
 
 ---
 
-### 8) Maven Repositories
-> **Storage locations** for Maven dependencies (artifacts/libraries).
+### Maven Repositories Flow
 
-```
-                    ┌─────────────────────┐
-                    │    Maven App        │
-                    │    (pom.xml)        │
-                    └──────────┬──────────┘
-                               │ needs dependency
-                               ▼
-                    ┌─────────────────────┐
-                    │   Local Repository  │
-                    │   (~/.m2/repository)│
-                    └──────────┬──────────┘
-                    Found? ◄───┤───► Not Found?
-                       │       │           │
-                  Use it ✅     │    ┌──────▼──────────┐
-                               │    │ Maven Central   │
-                               │    │ Repository      │
-                               │    │ (repo1.maven.org)│
-                               │    └──────┬──────────┘
-                               │           │ download & cache
-                               │           ▼
-                               │    ┌─────────────────┐
-                               │    │  Local Repo     │
-                               │    │  (now cached)   │
-                               │    └─────────────────┘
-                               │
-                    ┌──────────▼──────────┐
-                    │  Remote Repository  │
-                    │ (Company/Private)   │
-                    └─────────────────────┘
-```
+![Maven Repositories](../images/maven-Day-01-Repositories.png)
 
 ---
 
