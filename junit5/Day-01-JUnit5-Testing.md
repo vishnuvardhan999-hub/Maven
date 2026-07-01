@@ -1,10 +1,10 @@
-﻿# ≡ƒôù Day 1 ΓÇö JUnit 5 Testing
+# 📗 Day 1 — JUnit 5 Testing
 **Date:** 1 July 2026  
 **Topic:** Manual Testing vs Unit Testing, JUnit 5 Architecture, Assertions, Annotations, JUnit 4 vs JUnit 5
 
 ---
 
-## 1∩╕ÅΓâú What is Testing?
+## 1️⃣ What is Testing?
 
 > Testing is done to **ensure the application works correctly**.  
 > In big organizations, there are dedicated **Test Engineers** whose only job is testing.
@@ -14,21 +14,21 @@
 | Type | Who does it | When | Scope |
 |------|------------|------|-------|
 | **Application Testing** | Test Engineers | After full app is built | Entire application |
-| **Unit Testing** | Developer himself | **While developing** | Small parts ΓÇö methods, classes |
+| **Unit Testing** | Developer himself | **While developing** | Small parts — methods, classes |
 
 > Key rule: The developer **who wrote the code** tests it himself using unit testing.  
-> You don't wait for the entire app to be built ΓÇö you test **while you build**.
+> You don't wait for the entire app to be built — you test **while you build**.
 
 ---
 
-## 2∩╕ÅΓâú Manual Testing vs Unit Testing
+## 2️⃣ Manual Testing vs Unit Testing
 
 ### Manual Testing (old way)
 
 You write a **separate class** just to call your method and check output yourself:
 
 ```java
-// Sol.java ΓÇö your actual class
+// Sol.java — your actual class
 class Sol {
     public int mult(int a, int b) {
         return a * b;
@@ -39,7 +39,7 @@ class Sol {
     }
 }
 
-// Test.java ΓÇö manual test class (old way)
+// Test.java — manual test class (old way)
 class Test {
     public static void main(String[] args) {
         Sol s = new Sol();
@@ -53,7 +53,7 @@ class Test {
         }
 
         // Test divide
-        int res1 = s.div(4, 3);  // Note: int division ΓåÆ 4/3 = 1
+        int res1 = s.div(4, 3);  // Note: int division → 4/3 = 1
         if (res1 == 2) {
             System.out.println("Test is Passed");
         } else {
@@ -64,47 +64,47 @@ class Test {
 ```
 
 ### Problems with Manual Testing:
-- You write **if/else** yourself every time ΓÇö repetitive
-- No standard output ΓÇö just `System.out.println`
+- You write **if/else** yourself every time — repetitive
+- No standard output — just `System.out.println`
 - Hard to manage 100s of tests
 - No automatic reports
-- **No framework** ΓÇö everything from scratch
+- **No framework** — everything from scratch
 
 ---
 
-## 3∩╕ÅΓâú Unit Testing Framework ΓÇö What it provides
+## 3️⃣ Unit Testing Framework — What it provides
 
 A **Unit Testing Framework** like JUnit does these 6 steps for you automatically:
 
 ```
-1. Prepare   ΓåÆ Set up test environment, write test methods
-2. Provide   ΓåÆ Provide testing input (test data)
-3. Run       ΓåÆ Run the test automatically
-4. Provide   ΓåÆ Provide expected output
-5. Assert    ΓåÆ Perform assertion ΓÇö verify the result
-6. Report    ΓåÆ Report test results (alert developer if test failed or passed)
+1. Prepare   → Set up test environment, write test methods
+2. Provide   → Provide testing input (test data)
+3. Run       → Run the test automatically
+4. Provide   → Provide expected output
+5. Assert    → Perform assertion — verify the result
+6. Report    → Report test results (alert developer if test failed or passed)
 ```
 
-> JUnit automates all of this ΓÇö you just write the test logic, JUnit does the rest.
+> JUnit automates all of this — you just write the test logic, JUnit does the rest.
 
 ---
 
-## 4∩╕ÅΓâú JUnit 5 Architecture
+## 4️⃣ JUnit 5 Architecture
 
 > **JUnit 5 is NOT just JUnit 4 + new features.**  
 > It is a **completely new architecture** with 3 modules.
 
 ```
-                    ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
-                    Γöé       JUnit 5           Γöé
-                    ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
-                                 Γöé
-           ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
-           Γöé                     Γöé                      Γöé
-    ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓû╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ      ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓû╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ      ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓû╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
-    Γöé  JUnit      Γöé      Γöé   JUnit      Γöé      Γöé   JUnit      Γöé
-    Γöé  Platform   Γöé      Γöé  Vintage     Γöé      Γöé  Jupiter     Γöé
-    ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ      ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ      ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+                    ┌─────────────────────────┐
+                    │       JUnit 5           │
+                    └────────────┬────────────┘
+                                 │
+           ┌─────────────────────┼──────────────────────┐
+           │                     │                      │
+    ┌──────▼──────┐      ┌───────▼──────┐      ┌───────▼──────┐
+    │  JUnit      │      │   JUnit      │      │   JUnit      │
+    │  Platform   │      │  Vintage     │      │  Jupiter     │
+    └─────────────┘      └─────────────┘      └─────────────┘
    Launches tests        Runs JUnit 3 & 4      New JUnit 5
    on the JVM            tests (backward       annotations &
    (foundation)          compatibility)        API (main one)
@@ -112,7 +112,7 @@ A **Unit Testing Framework** like JUnit does these 6 steps for you automatically
 
 | Module | Role |
 |--------|------|
-| **JUnit Platform** | The foundation ΓÇö launches tests, integrates with Maven/Gradle/IDEs |
+| **JUnit Platform** | The foundation — launches tests, integrates with Maven/Gradle/IDEs |
 | **JUnit Jupiter** | The API that contains all new JUnit 5 annotations (`@Test`, `@BeforeEach`, etc.) |
 | **JUnit Vintage** | Runs old JUnit 3 and JUnit 4 tests so existing code doesn't break |
 
@@ -121,10 +121,10 @@ A **Unit Testing Framework** like JUnit does these 6 steps for you automatically
 
 ---
 
-## 5∩╕ÅΓâú @Test Annotation
+## 5️⃣ @Test Annotation
 
 ```java
-@Test   // ΓåÉ applied over methods to mark method as test
+@Test   // ← applied over methods to mark method as test
 public void testMultiply() {
     // test code here
 }
@@ -136,12 +136,12 @@ public void testMultiply() {
 - Visibility of `@Test` annotated method can be **public** (default is also fine in JUnit 5)
 - Protected / default visibility is also acceptable
 - Also, informs the **test engine which method needs to run**
-- The **success is the default behavior** of test ΓÇö it will run
-- Only checks for **errors** ΓÇö if no errors, by default it will give **green (pass)**
+- The **success is the default behavior** of test — it will run
+- Only checks for **errors** — if no errors, by default it will give **green (pass)**
 
 ---
 
-## 6∩╕ÅΓâú Assertions
+## 6️⃣ Assertions
 
 > **Assertions = static methods** used to **check the actual result** against the expected result.
 
@@ -160,12 +160,12 @@ public void testMultiply() {
 
 ---
 
-## 7∩╕ÅΓâú Complete JUnit 5 Code Examples
+## 7️⃣ Complete JUnit 5 Code Examples
 
 ### Example 1: Basic Calculator Test (from your notes)
 
 ```java
-// Calculator.java ΓÇö the class we want to test
+// Calculator.java — the class we want to test
 public class Calculator {
     public int divide(int a, int b) {
         return a / b;
@@ -174,7 +174,7 @@ public class Calculator {
 ```
 
 ```java
-// CalcTest.java ΓÇö JUnit 5 test class
+// CalcTest.java — JUnit 5 test class
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -195,7 +195,7 @@ public class CalcTest {
 ### Example 2: String Reversal Test (from your notes)
 
 ```java
-// ReverseString.java ΓÇö production class
+// ReverseString.java — production class
 public class ReverseString {
     public String reverse(String input) {
         return new StringBuilder(input).reverse().toString();
@@ -208,7 +208,7 @@ public class ReverseString {
 ```
 
 ```java
-// ReverseStringTest.java ΓÇö JUnit 5 test
+// ReverseStringTest.java — JUnit 5 test
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -230,9 +230,9 @@ class ReverseStringTest {
 
     @Test
     void testMultipleWords() {
-        // "Java is easy" contains a space ΓåÆ true
+        // "Java is easy" contains a space → true
         assertTrue(reverse.multipleWords("Java is easy"));
-        // "Java" has no space ΓåÆ false
+        // "Java" has no space → false
         assertFalse(reverse.multipleWords("Java"));
     }
 }
@@ -240,7 +240,7 @@ class ReverseStringTest {
 
 ---
 
-### Example 3: Full Calculator ΓÇö All Assertion Types
+### Example 3: Full Calculator — All Assertion Types
 
 ```java
 // Calculator.java
@@ -255,7 +255,7 @@ public class Calculator {
 ```
 
 ```java
-// CalculatorTest.java ΓÇö JUnit 5 tests with ALL assertion types
+// CalculatorTest.java — JUnit 5 tests with ALL assertion types
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -285,29 +285,29 @@ class CalculatorTest {
         System.out.println("=== All Calculator Tests Done ===");
     }
 
-    // ΓöÇΓöÇ assertEquals ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+    // ── assertEquals ──────────────────────────────────────────
     @Test
     @DisplayName("Addition should return correct sum")
     void testAdd() {
-        assertEquals(8, calc.add(5, 3));      // 5+3 = 8 Γ£ô
-        assertEquals(0, calc.add(0, 0));      // 0+0 = 0 Γ£ô
-        assertEquals(-2, calc.add(-5, 3));    // -5+3 = -2 Γ£ô
+        assertEquals(8, calc.add(5, 3));      // 5+3 = 8 ✓
+        assertEquals(0, calc.add(0, 0));      // 0+0 = 0 ✓
+        assertEquals(-2, calc.add(-5, 3));    // -5+3 = -2 ✓
     }
 
-    // ΓöÇΓöÇ assertNotEquals ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+    // ── assertNotEquals ───────────────────────────────────────
     @Test
     void testSubtractNotEqual() {
-        assertNotEquals(10, calc.subtract(5, 3));  // 5-3=2, NOT 10 Γ£ô
+        assertNotEquals(10, calc.subtract(5, 3));  // 5-3=2, NOT 10 ✓
     }
 
-    // ΓöÇΓöÇ assertTrue / assertFalse ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+    // ── assertTrue / assertFalse ──────────────────────────────
     @Test
     void testIsEven() {
-        assertTrue(calc.isEven(4));    // 4 is even ΓåÆ true Γ£ô
-        assertFalse(calc.isEven(7));   // 7 is odd  ΓåÆ false Γ£ô
+        assertTrue(calc.isEven(4));    // 4 is even → true ✓
+        assertFalse(calc.isEven(7));   // 7 is odd  → false ✓
     }
 
-    // ΓöÇΓöÇ assertThrows ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+    // ── assertThrows ──────────────────────────────────────────
     @Test
     @DisplayName("Divide by zero should throw ArithmeticException")
     void testDivideByZero() {
@@ -317,15 +317,15 @@ class CalculatorTest {
         });
     }
 
-    // ΓöÇΓöÇ assertNull / assertNotNull ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+    // ── assertNull / assertNotNull ────────────────────────────
     @Test
     void testGreetNotNull() {
         String result = calc.greet("Vishnu");
-        assertNotNull(result);                    // result is not null Γ£ô
-        assertEquals("Hello, Vishnu", result);    // content is correct Γ£ô
+        assertNotNull(result);                    // result is not null ✓
+        assertEquals("Hello, Vishnu", result);    // content is correct ✓
     }
 
-    // ΓöÇΓöÇ assertAll: runs ALL assertions even if one fails ΓöÇΓöÇΓöÇΓöÇΓöÇ
+    // ── assertAll: runs ALL assertions even if one fails ─────
     @Test
     void testMultipleAssertions() {
         assertAll("all calculator checks",
@@ -336,7 +336,7 @@ class CalculatorTest {
         );
     }
 
-    // ΓöÇΓöÇ @Disabled: skip a test temporarily ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+    // ── @Disabled: skip a test temporarily ───────────────────
     @Test
     @Disabled("Feature not implemented yet")
     void testNotYetReady() {
@@ -382,36 +382,36 @@ class ParameterizedCalcTest {
 
 ---
 
-## 8∩╕ÅΓâú JUnit 4 vs JUnit 5 ΓÇö Full Difference
+## 8️⃣ JUnit 4 vs JUnit 5 — Full Difference
 
 ```
-ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
-Γöé                  JUnit 4  vs  JUnit 5                              Γöé
-Γö£ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöñ
-Γöé       JUnit 4          Γöé          JUnit 5                         Γöé
-Γö£ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöñ
-Γöé Single JAR             Γöé 3 modules: Platform + Jupiter + Vintage  Γöé
-Γöé org.junit              Γöé org.junit.jupiter.api                    Γöé
-Γöé @Before                Γöé @BeforeEach                              Γöé
-Γöé @After                 Γöé @AfterEach                               Γöé
-Γöé @BeforeClass           Γöé @BeforeAll                               Γöé
-Γöé @AfterClass            Γöé @AfterAll                                Γöé
-Γöé @Ignore                Γöé @Disabled                                Γöé
-Γöé @RunWith(...)          Γöé @ExtendWith(...)                         Γöé
-Γöé Methods MUST be public Γöé Methods can be package-private (default) Γöé
-Γöé No @DisplayName        Γöé @DisplayName("friendly name")            Γöé
-Γöé No @Nested tests       Γöé @Nested (group tests inside classes)     Γöé
-Γöé No Parameterized API   Γöé @ParameterizedTest + @ValueSource etc    Γöé
-Γöé No assertThrows()      Γöé assertThrows() built-in                  Γöé
-Γöé No assertAll()         Γöé assertAll() ΓÇö run all, report all fails  Γöé
-Γöé Runners for extension  Γöé Extension model (cleaner)                Γöé
-ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö┤ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+┌────────────────────────────────────────────────────────────────────┐
+│                  JUnit 4  vs  JUnit 5                              │
+├────────────────────────┬───────────────────────────────────────────┤
+│       JUnit 4          │          JUnit 5                         │
+├────────────────────────┼───────────────────────────────────────────┤
+│ Single JAR             │ 3 modules: Platform + Jupiter + Vintage  │
+│ org.junit              │ org.junit.jupiter.api                    │
+│ @Before                │ @BeforeEach                              │
+│ @After                 │ @AfterEach                               │
+│ @BeforeClass           │ @BeforeAll                               │
+│ @AfterClass            │ @AfterAll                                │
+│ @Ignore                │ @Disabled                                │
+│ @RunWith(...)          │ @ExtendWith(...)                         │
+│ Methods MUST be public │ Methods can be package-private (default) │
+│ No @DisplayName        │ @DisplayName("friendly name")            │
+│ No @Nested tests       │ @Nested (group tests inside classes)     │
+│ No Parameterized API   │ @ParameterizedTest + @ValueSource etc    │
+│ No assertThrows()      │ assertThrows() built-in                  │
+│ No assertAll()         │ assertAll() — run all, report all fails  │
+│ Runners for extension  │ Extension model (cleaner)                │
+└────────────────────────┴───────────────────────────────────────────┘
 ```
 
 ### Side-by-side code comparison:
 
 ```java
-// ΓöÇΓöÇΓöÇ JUnit 4 ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+// ─── JUnit 4 ───────────────────────────────────────
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;
@@ -446,7 +446,7 @@ public class CalcTestJUnit4 {
 ```
 
 ```java
-// ΓöÇΓöÇΓöÇ JUnit 5 ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+// ─── JUnit 5 ───────────────────────────────────────
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -474,7 +474,7 @@ class CalcTestJUnit5 {
     @Test
     void skippedTest() { }
 
-    // EXTRA JUnit 5 features ΓÇö not available in JUnit 4:
+    // EXTRA JUnit 5 features — not available in JUnit 4:
 
     @Test
     void testException() {
@@ -506,7 +506,7 @@ class CalcTestJUnit5 {
 
 ---
 
-## 9∩╕ÅΓâú Maven Dependency to Add JUnit 5
+## 9️⃣ Maven Dependency to Add JUnit 5
 
 ```xml
 <!-- In pom.xml -->
@@ -552,7 +552,7 @@ tasks.test {
 
 ---
 
-## ≡ƒöæ Quick Reference Card
+## 🔑 Quick Reference Card
 
 | Annotation | JUnit 4 | JUnit 5 |
 |------------|---------|---------|
@@ -562,7 +562,7 @@ tasks.test {
 | Before all tests | `@BeforeClass` | `@BeforeAll` |
 | After all tests | `@AfterClass` | `@AfterAll` |
 | Skip test | `@Ignore` | `@Disabled` |
-| Custom name | ΓÇö | `@DisplayName` |
+| Custom name | — | `@DisplayName` |
 | Run multiple inputs | `@RunWith(Parameterized)` | `@ParameterizedTest` |
 | Extension | `@RunWith` | `@ExtendWith` |
 
@@ -574,4 +574,4 @@ tasks.test {
 
 ---
 
-*≡ƒôà Tomorrow: More JUnit 5 concepts ΓÇö Mocking with Mockito...*
+*📅 Tomorrow: More JUnit 5 concepts — Mocking with Mockito...*

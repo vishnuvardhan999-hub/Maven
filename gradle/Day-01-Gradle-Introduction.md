@@ -1,24 +1,24 @@
-﻿# ≡ƒôù Day 1 ΓÇö Gradle Build Tool
+# 📗 Day 1 — Gradle Build Tool
 **Date:** 1 July 2026  
 **Topic:** What is Gradle, Gradle vs Maven, Groovy DSL vs Kotlin DSL, Project Structure, Gradle Wrapper
 
 ---
 
-## ≡ƒù║∩╕Å Mind Map
+## 🗺️ Mind Map
 
 ```
-                         ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
-                         Γöé       GRADLE         Γöé
-                         Γöé   Build Tool         Γöé
-                         ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
-                                    Γöé
-       ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
-       Γöé              Γöé             Γöé              Γöé              Γöé
- ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓû╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ  ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓû╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ ΓöîΓöÇΓöÇΓöÇΓöÇΓû╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ ΓöîΓöÇΓöÇΓöÇΓöÇΓû╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓû╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
- Γöé  What is  Γöé  Γöé Gradle vs Γöé Γöé  Groovy  Γöé Γöé Project  Γöé Γöé  Gradle    Γöé
- Γöé  Gradle?  Γöé  Γöé  Maven    Γöé Γöé    vs    Γöé ΓöéStructure Γöé Γöé  Wrapper   Γöé
- ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ  ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ Γöé  Kotlin  Γöé ΓööΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
-       Γöé               Γöé       ΓööΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ      Γöé              Γöé
+                         ┌──────────────────────┐
+                         │       GRADLE         │
+                         │   Build Tool         │
+                         └──────────┬───────────┘
+                                    │
+       ┌──────────────┬─────────────┼──────────────┬──────────────┐
+       │              │             │              │              │
+ ┌─────▼─────┐  ┌─────▼─────┐ ┌────▼──────┐ ┌────▼─────┐ ┌──────▼──────┐
+ │  What is  │  │ Gradle vs │ │  Groovy  │ │ Project  │ │  Gradle    │
+ │  Gradle?  │  │  Maven    │ │    vs    │ │Structure │ │  Wrapper   │
+ └─────┬─────┘  └─────┬─────┘ │  Kotlin  │ └────┬─────┘ └──────┬──────┘
+       │               │       └────┬──────┘      │              │
   Build tool      Faster,      build.gradle   src/main      gradlew.bat
   automates       flexible,    OR              src/test      no install
   your project    Groovy/      build.gradle   build/        needed
@@ -27,7 +27,7 @@
 
 ---
 
-## 1∩╕ÅΓâú What is a Build Tool?
+## 1️⃣ What is a Build Tool?
 
 > A **build tool** is software that **automates the process of building your project**.
 
@@ -35,14 +35,14 @@
 
 | Step | What happens |
 |------|-------------|
-| ≡ƒö¿ Compile | Source code (Java) ΓåÆ Bytecode (`.class`) |
-| ≡ƒôª Package | Code into JAR / WAR files |
-| ≡ƒôÜ Manage Dependencies | Gets external libraries like Hibernate, Spring, etc. |
-| ≡ƒº¬ Run Tests | Executes all your test cases |
-| ≡ƒÜÇ Deploy | Puts the application on a server |
+| 🔨 Compile | Source code (Java) → Bytecode (`.class`) |
+| 📦 Package | Code into JAR / WAR files |
+| 📚 Manage Dependencies | Gets external libraries like Hibernate, Spring, etc. |
+| 🧪 Run Tests | Executes all your test cases |
+| 🚀 Deploy | Puts the application on a server |
 
 ### Simple Analogy:
-> ≡ƒÅù∩╕Å Building a house manually = carrying bricks one by one, mixing cement yourself  
+> 🏗️ Building a house manually = carrying bricks one by one, mixing cement yourself  
 > Using a **build tool** = a construction machine that does it all automatically
 
 When you build your project, the output is packaged into a **JAR or WAR** file that:
@@ -51,7 +51,7 @@ When you build your project, the output is packaged into a **JAR or WAR** file t
 
 ---
 
-## 2∩╕ÅΓâú What is Gradle?
+## 2️⃣ What is Gradle?
 
 Gradle is a **free, open-source build automation tool** that:
 - Is **more flexible and faster** than Maven
@@ -60,25 +60,25 @@ Gradle is a **free, open-source build automation tool** that:
 - Supports many languages: **Java, Kotlin, Groovy, Scala, C++, Swift**
 
 > Maven is for **only Java and Spring Boot**, but Gradle supports:
-> Java ┬╖ Kotlin ┬╖ Groovy ┬╖ Scala ┬╖ C++ ┬╖ Swift
+> Java · Kotlin · Groovy · Scala · C++ · Swift
 
 ---
 
-## 3∩╕ÅΓâú Maven vs Gradle ΓÇö Side by Side
+## 3️⃣ Maven vs Gradle — Side by Side
 
 ```
-ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
-Γöé                    MAVEN vs GRADLE                              Γöé
-Γö£ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöñ
-Γöé         MAVEN            Γöé            GRADLE                   Γöé
-Γö£ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöñ
-Γöé pom.xml (XML config)     Γöé build.gradle (Groovy or Kotlin DSL) Γöé
-Γöé Easy to understand       Γöé More programming-oriented            Γöé
-Γöé Performance is slower    Γöé Performance is faster ΓÜí             Γöé
-Γöé Fixed conventions        Γöé Highly customizable                  Γöé
-Γöé Very common in Java      Γöé Very common in Android and           Γöé
-Γöé Enterprise projects      Γöé modern projects                      Γöé
-ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö┤ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+┌─────────────────────────────────────────────────────────────────┐
+│                    MAVEN vs GRADLE                              │
+├──────────────────────────┬──────────────────────────────────────┤
+│         MAVEN            │            GRADLE                   │
+├──────────────────────────┼──────────────────────────────────────┤
+│ pom.xml (XML config)     │ build.gradle (Groovy or Kotlin DSL) │
+│ Easy to understand       │ More programming-oriented            │
+│ Performance is slower    │ Performance is faster ⚡             │
+│ Fixed conventions        │ Highly customizable                  │
+│ Very common in Java      │ Very common in Android and           │
+│ Enterprise projects      │ modern projects                      │
+└──────────────────────────┴──────────────────────────────────────┘
 ```
 
 ### Why is Gradle Faster? (Simple Example)
@@ -88,19 +88,19 @@ Gradle is a **free, open-source build automation tool** that:
 ```
 MAVEN:
   You change 5 files out of 1000
-  Maven re-executes ALL 1000 files  ΓåÉ wasteful!
+  Maven re-executes ALL 1000 files  ← wasteful!
 
 GRADLE:
   You change 5 files out of 1000
-  Gradle rebuilds ONLY those 5 changed files Γ£à ΓåÉ SMART!
+  Gradle rebuilds ONLY those 5 changed files ✅ ← SMART!
 ```
 
-This is called **Incremental Build** ΓÇö Gradle only rebuilds what changed.  
+This is called **Incremental Build** — Gradle only rebuilds what changed.  
 That's why Gradle is **faster compared to Maven**.
 
 ---
 
-## 4∩╕ÅΓâú Build Command Differences
+## 4️⃣ Build Command Differences
 
 | Task | Maven Command | Gradle Command |
 |------|--------------|----------------|
@@ -111,7 +111,7 @@ That's why Gradle is **faster compared to Maven**.
 
 ---
 
-## 5∩╕ÅΓâú Gradle in CMD ΓÇö Basic Commands
+## 5️⃣ Gradle in CMD — Basic Commands
 
 ```bash
 gradle init       # Create a new Gradle project
@@ -122,68 +122,68 @@ gradle clean      # Delete the build/ folder
 gradle test       # Run unit tests
 ```
 
-> ΓÜá∩╕Å `gradle run` works only when Gradle is **installed locally**.  
+> ⚠️ `gradle run` works only when Gradle is **installed locally**.  
 > Use `gradlew.bat` to run **without installing Gradle** (explained below).
 
 ---
 
-## 6∩╕ÅΓâú Gradle Project Folder Structure
+## 6️⃣ Gradle Project Folder Structure
 
 ```
 my-project/
-Γöé
-Γö£ΓöÇΓöÇ build.gradle          ΓåÉ Main Gradle build script (YOUR config file)
-Γö£ΓöÇΓöÇ settings.gradle       ΓåÉ Multi-project settings (project name, subprojects)
-Γöé
-Γö£ΓöÇΓöÇ gradlew               ΓåÉ Gradle wrapper script (Linux / Mac)
-Γö£ΓöÇΓöÇ gradlew.bat           ΓåÉ Gradle wrapper script (Windows) Γ£à
-Γöé
-Γö£ΓöÇΓöÇ gradle/
-Γöé   ΓööΓöÇΓöÇ wrapper/          ΓåÉ Wrapper files (keeps Gradle version info)
-Γöé
-Γö£ΓöÇΓöÇ src/
-Γöé   Γö£ΓöÇΓöÇ main/
-Γöé   Γöé   Γö£ΓöÇΓöÇ java/         ΓåÉ Your Java source code
-Γöé   Γöé   ΓööΓöÇΓöÇ resources/    ΓåÉ Config files, properties, static files
-Γöé   Γöé
-Γöé   ΓööΓöÇΓöÇ test/
-Γöé       Γö£ΓöÇΓöÇ java/         ΓåÉ Unit test code
-Γöé       ΓööΓöÇΓöÇ resources/    ΓåÉ Test-related configs/resources
-Γöé
-ΓööΓöÇΓöÇ build/                ΓåÉ Auto-generated build output (classes, JARs)
+│
+├── build.gradle          ← Main Gradle build script (YOUR config file)
+├── settings.gradle       ← Multi-project settings (project name, subprojects)
+│
+├── gradlew               ← Gradle wrapper script (Linux / Mac)
+├── gradlew.bat           ← Gradle wrapper script (Windows) ✅
+│
+├── gradle/
+│   └── wrapper/          ← Wrapper files (keeps Gradle version info)
+│
+├── src/
+│   ├── main/
+│   │   ├── java/         ← Your Java source code
+│   │   └── resources/    ← Config files, properties, static files
+│   │
+│   └── test/
+│       ├── java/         ← Unit test code
+│       └── resources/    ← Test-related configs/resources
+│
+└── build/                ← Auto-generated build output (classes, JARs)
 ```
 
 ### Comparison with Maven:
 ```
 Maven                         Gradle
-ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ     ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
-pom.xml               ΓåÆ       build.gradle
-src/main/java         ΓåÆ       src/main/java  (same!)
-src/test/java         ΓåÆ       src/test/java  (same!)
-target/               ΓåÆ       build/
+─────────────────────────     ─────────────────────────
+pom.xml               →       build.gradle
+src/main/java         →       src/main/java  (same!)
+src/test/java         →       src/test/java  (same!)
+target/               →       build/
 ```
 
 ---
 
-## 7∩╕ÅΓâú Gradle Wrapper
+## 7️⃣ Gradle Wrapper
 
 ### What is Gradle Wrapper?
 
 > **Gradle Wrapper** = a set of scripts + small JAR files that allow you to **run Gradle without installing Gradle manually** on your system.
 
 ### Simple Analogy:
-> ≡ƒÄ« Imagine a game that comes with its own launcher.  
-> You don't need to install anything ΓÇö just click the launcher and it runs.  
+> 🎮 Imagine a game that comes with its own launcher.  
+> You don't need to install anything — just click the launcher and it runs.  
 > **Gradle Wrapper = that launcher** for your project.
 
 ### Files in the wrapper:
 ```
-gradlew          ΓåÉ Shell script for Linux/Mac
-gradlew.bat      ΓåÉ Batch script for Windows Γ£à
+gradlew          ← Shell script for Linux/Mac
+gradlew.bat      ← Batch script for Windows ✅
 gradle/
-ΓööΓöÇΓöÇ wrapper/
-    Γö£ΓöÇΓöÇ gradle-wrapper.jar        ΓåÉ Downloads the right Gradle version
-    ΓööΓöÇΓöÇ gradle-wrapper.properties ΓåÉ Stores which Gradle version to use
+└── wrapper/
+    ├── gradle-wrapper.jar        ← Downloads the right Gradle version
+    └── gradle-wrapper.properties ← Stores which Gradle version to use
 ```
 
 ### How to use it:
@@ -200,35 +200,35 @@ gradlew.bat clean
 ./gradlew clean
 ```
 
-> Γ£à We need to make sure Gradle application is running globally to use `gradlew.bat`  
+> ✅ We need to make sure Gradle application is running globally to use `gradlew.bat`  
 > But if not installed globally, `gradlew.bat` **downloads the correct Gradle version automatically**!
 
 ### Why wrapper is important:
 ```
 WITHOUT wrapper:                  WITH wrapper:
-  Developer A: Gradle 7.0   ΓåÆ     Everyone uses the SAME version
-  Developer B: Gradle 8.0   ΓåÆ     defined in wrapper.properties Γ£à
-  Developer C: Gradle 6.5   ΓåÆ     No version conflicts!
-  Result: CONFLICTS! Γ¥î
+  Developer A: Gradle 7.0   →     Everyone uses the SAME version
+  Developer B: Gradle 8.0   →     defined in wrapper.properties ✅
+  Developer C: Gradle 6.5   →     No version conflicts!
+  Result: CONFLICTS! ❌
 ```
 
 ---
 
-## 8∩╕ÅΓâú Groovy DSL vs Kotlin DSL
+## 8️⃣ Groovy DSL vs Kotlin DSL
 
 This is the most important concept that makes Gradle unique!
 
-> **DSL = Domain Specific Language** ΓÇö a mini-language designed for a specific purpose.  
+> **DSL = Domain Specific Language** — a mini-language designed for a specific purpose.  
 > Gradle lets you write your build script in **two languages**: Groovy or Kotlin.
 
 ---
 
-### ≡ƒƒí Groovy DSL ΓÇö `build.gradle`
+### 🟡 Groovy DSL — `build.gradle`
 
 **Groovy** is a dynamic scripting language that runs on the JVM (Java Virtual Machine).
 
 Think of Groovy like:
-> ≡ƒô¥ Writing build instructions in a **relaxed, flexible way** ΓÇö like a rough draft.  
+> 📝 Writing build instructions in a **relaxed, flexible way** — like a rough draft.  
 > It's forgiving, short, and quick to write.
 
 #### File name: `build.gradle`
@@ -264,17 +264,17 @@ dependencies {
 - Uses **single quotes** `'...'` for strings (mostly)
 - **No semicolons** needed
 - **Optional parentheses** in some places
-- More **flexible/dynamic** ΓÇö less strict
+- More **flexible/dynamic** — less strict
 - Older style, widely used in existing projects
 
 ---
 
-### ≡ƒö╡ Kotlin DSL ΓÇö `build.gradle.kts`
+### 🔵 Kotlin DSL — `build.gradle.kts`
 
 **Kotlin** is a modern, statically-typed language made by JetBrains (the makers of IntelliJ).
 
 Think of Kotlin DSL like:
-> ≡ƒôï Writing build instructions in a **strict, professional way** ΓÇö like a final typed document.  
+> 📋 Writing build instructions in a **strict, professional way** — like a final typed document.  
 > Your IDE catches mistakes immediately, everything is precise.
 
 #### File name: `build.gradle.kts` (notice the `.kts` extension!)
@@ -309,34 +309,34 @@ dependencies {
 **Kotlin DSL Characteristics:**
 - Uses **double quotes** `"..."` for strings
 - **Parentheses are required** `("...")`
-- **Statically typed** ΓÇö IDE gives you auto-complete and error highlighting
-- **More strict** ΓÇö catches errors before you even run
+- **Statically typed** — IDE gives you auto-complete and error highlighting
+- **More strict** — catches errors before you even run
 - Modern style, recommended for new projects
 
 ---
 
-### ≡ƒåÜ Groovy vs Kotlin DSL ΓÇö Full Comparison
+### 🆚 Groovy vs Kotlin DSL — Full Comparison
 
 ```
-ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
-Γöé              Groovy DSL  vs  Kotlin DSL                             Γöé
-Γö£ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöñ
-Γöé       GROOVY DSL           Γöé         KOTLIN DSL                    Γöé
-Γö£ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöñ
-Γöé File: build.gradle         Γöé File: build.gradle.kts                Γöé
-Γöé Language: Groovy           Γöé Language: Kotlin                      Γöé
-Γöé Dynamic typing             Γöé Static typing (stricter)              Γöé
-Γöé Less IDE support           Γöé Full IDE auto-complete Γ£à              Γöé
-Γöé Shorter, flexible syntax   Γöé More explicit, verbose syntax         Γöé
-Γöé Older projects use this    Γöé New/modern projects prefer this       Γöé
-Γöé 'single quotes' for stringsΓöé "double quotes" for strings           Γöé
-Γöé Optional parentheses       Γöé Parentheses required                  Γöé
-Γöé Harder to catch typos      Γöé Errors caught at compile time Γ£à       Γöé
-Γöé More beginner-friendly     Γöé Better for large teams                Γöé
-ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö┤ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+┌─────────────────────────────────────────────────────────────────────┐
+│              Groovy DSL  vs  Kotlin DSL                             │
+├────────────────────────────┬────────────────────────────────────────┤
+│       GROOVY DSL           │         KOTLIN DSL                    │
+├────────────────────────────┼────────────────────────────────────────┤
+│ File: build.gradle         │ File: build.gradle.kts                │
+│ Language: Groovy           │ Language: Kotlin                      │
+│ Dynamic typing             │ Static typing (stricter)              │
+│ Less IDE support           │ Full IDE auto-complete ✅              │
+│ Shorter, flexible syntax   │ More explicit, verbose syntax         │
+│ Older projects use this    │ New/modern projects prefer this       │
+│ 'single quotes' for strings│ "double quotes" for strings           │
+│ Optional parentheses       │ Parentheses required                  │
+│ Harder to catch typos      │ Errors caught at compile time ✅       │
+│ More beginner-friendly     │ Better for large teams                │
+└────────────────────────────┴────────────────────────────────────────┘
 ```
 
-### Same thing written in both ΓÇö spot the difference:
+### Same thing written in both — spot the difference:
 
 ```groovy
 // GROOVY DSL (build.gradle)
@@ -359,33 +359,33 @@ dependencies {
 ### Which one should you use?
 
 ```
-Starting a NEW project?         ΓåÆ Use Kotlin DSL (build.gradle.kts) Γ£à
-Working on an EXISTING project? ΓåÆ Stick with whatever it uses
-Learning Gradle for the first time? ΓåÆ Groovy DSL is simpler to start
-Working in a TEAM?              ΓåÆ Kotlin DSL (better IDE support)
-Android project?                ΓåÆ Kotlin DSL (Google recommends it)
+Starting a NEW project?         → Use Kotlin DSL (build.gradle.kts) ✅
+Working on an EXISTING project? → Stick with whatever it uses
+Learning Gradle for the first time? → Groovy DSL is simpler to start
+Working in a TEAM?              → Kotlin DSL (better IDE support)
+Android project?                → Kotlin DSL (Google recommends it)
 ```
 
 ---
 
-## 9∩╕ÅΓâú Gradle Supports More Languages Than Maven
+## 9️⃣ Gradle Supports More Languages Than Maven
 
 ```
            MAVEN                        GRADLE
-     ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ          ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
-          Java Γ£à                     Java Γ£à
-       Spring Boot Γ£à                 Kotlin Γ£à
-                                      Groovy Γ£à
-                                      Scala Γ£à
-                                      C++ Γ£à
-                                      Swift Γ£à
-                                   Spring Boot Γ£à
-                                    Android Γ£à
+     ─────────────────          ─────────────────────────
+          Java ✅                     Java ✅
+       Spring Boot ✅                 Kotlin ✅
+                                      Groovy ✅
+                                      Scala ✅
+                                      C++ ✅
+                                      Swift ✅
+                                   Spring Boot ✅
+                                    Android ✅
 ```
 
 ---
 
-## ≡ƒöæ Quick Reference Card
+## 🔑 Quick Reference Card
 
 | Concept | Groovy DSL | Kotlin DSL |
 |---------|-----------|------------|
@@ -409,4 +409,4 @@ Android project?                ΓåÆ Kotlin DSL (Google recommends it)
 
 ---
 
-*≡ƒôà Tomorrow: More Gradle concepts...*
+*📅 Tomorrow: More Gradle concepts...*
